@@ -6,7 +6,7 @@ import { useState, useEffect, useRef } from "react";
 import { Hero1 } from "../../components/Hero/";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import { ImgText3 } from "../../components/imgText";
-import { Info1 } from "../../components/info";
+import { Info1 } from "../../components/Info";
 import { GallerySlider1 } from "../../components/elementSliders";
 import { EventSlider1 } from "../../components/elementSliders";
 
