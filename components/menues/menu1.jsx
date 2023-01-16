@@ -117,7 +117,7 @@ const Menu1 = (props) => {
     return (
         <>
             {showOverlay ? <Overlay onClick={(e) => setShowOverlay(false)}></Overlay> : null}
-            {showOverlay ? <Mobile1></Mobile1> : null}
+            {showOverlay ? <Mobile1 onClick={(e) => setShowOverlay(false)}></Mobile1> : null}
             <nav ref={navRef} className={`w-full bg-white z-50  ${props.colspan}`}>
                 <div className="container grid grid-cols-12 m-auto items-center px-8 py-4 sm:px-16 sm:py-4 lg:px-0 lg:py-0">
                     {/* Background Image */}

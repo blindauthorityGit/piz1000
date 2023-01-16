@@ -4,15 +4,22 @@ import Image from "next/image";
 import { PortableText } from "@portabletext/react";
 import { motion, useAnimation } from "framer-motion";
 import Logo from "../../assets/logo.svg";
+import { GrClose } from "react-icons/gr";
+import { useRouter } from "next/router";
 
 const Mobile1 = (props) => {
     const [showMenu, setShowMenu] = useState(props.showMenu);
+    const { asPath } = useRouter();
 
     const burgerRef = useRef();
 
     function clicker(e) {
         console.log("Clicked");
     }
+
+    // useEffect(() => {
+    //     props.showMenu(false);
+    // }, [asPath]);
 
     const boxMotion = {
         rest: {
@@ -46,6 +53,9 @@ const Mobile1 = (props) => {
                 className={`navbar slide-in-right ${props.klasse} 
                  w-full h-screen bg-white fixed z-40 `}
             >
+                <div onClick={props.onClick} className="closer absolute right-8 top-8">
+                    <GrClose></GrClose>
+                </div>
                 <div className="container h-screen py-16 px-16 font-europa tracking-wider">
                     <div className="middle">
                         <Link href="/start">

@@ -21,7 +21,7 @@ function urlFor(source) {
 const Stoerer1 = (props) => {
     return (
         <div className={`w-full container  sm:px-24 m-auto lg:gap-16 grid grid-cols-12  ${props.colspan}`}>
-            <div className={`left col-span-12 relative h-96 sm:h-32 lg:h-auto ${props.order}`}>
+            <div className={`left col-span-12 relative h-[460px] lg:h-auto ${props.order}`}>
                 <div className="w-full h-full px-6 absolute flex flex-col justify-center items-center z-20">
                     <div className="relative h-16 w-16 w-full sm:h-32 sm:w-32 mb-10">
                         <Image
@@ -47,7 +47,7 @@ const Stoerer1 = (props) => {
                     </Link>
                 </div>
                 <div className="overlay absolute w-full h-full bg-black z-10 opacity-30"></div>
-                <div className="relative hidden sm:block">
+                <div className="relative hidden lg:block">
                     <Image
                         // {...ImagePropsGallery(i)}
                         src={urlFor(props.data.image).url()}
@@ -59,7 +59,7 @@ const Stoerer1 = (props) => {
                         alt="hero"
                     />
                 </div>
-                <div className="relative sm:hidden block h-full">
+                <div className="relative lg:hidden block h-full">
                     <Image
                         // {...ImagePropsGallery(i)}
                         src={urlFor(props.data.image).url()}

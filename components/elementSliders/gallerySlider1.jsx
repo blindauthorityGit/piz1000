@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 // SWIPER
@@ -41,9 +41,17 @@ const GallerySlider1 = (props) => {
     const [showOverlay, setShowOverlay] = useState(false);
     const [activeImg, setActiveImg] = useState(null);
 
+    const swiperRef = useRef();
+
     useEffect(() => {
         setisLoaded(true);
+        console.log(swiperRef.current);
+        swiperRef.current.style.paddingBottom = "3.75rem!important";
     }, []);
+
+    useEffect(() => {
+        swiperRef.current.style.paddingBottom = "3.75rem!important";
+    }, [swiperRef.current]);
 
     const textMotion = {
         rest: {
@@ -94,10 +102,11 @@ const GallerySlider1 = (props) => {
                     modules={[Pagination, A11y]}
                     spaceBetween={50}
                     slidesPerView={4}
+                    ref={swiperRef}
                     pagination={{ clickable: true }}
                     onSwiper={(swiper) => console.log(swiper)}
                     onSlideChange={() => console.log("slide change")}
-                    className="h-full eventSlider"
+                    className="h-full eventSlider pb-[3.75rem!important]"
                     style={{ paddingBottom: "3.75rem!important" }}
                     breakpoints={{
                         // when window width is >= 640px

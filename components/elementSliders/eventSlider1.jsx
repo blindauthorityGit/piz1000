@@ -67,7 +67,7 @@ const EventSlider1 = (props) => {
             }`}
         >
             {props.nonstart ? (
-                <h2 className="font-oswald text-4xl lg:text-6xl font-semibold mb-4 lg:mb-12">
+                <h2 className="font-oswald text-4xl lg:text-6xl font-semibold mb-8 lg:mb-12">
                     Weitere Veranstaltungen:
                 </h2>
             ) : null}
@@ -80,7 +80,7 @@ const EventSlider1 = (props) => {
                 pagination={{ clickable: true }}
                 onSwiper={(swiper) => console.log(swiper)}
                 onSlideChange={() => console.log("slide change")}
-                className="h-full eventSlider"
+                className="h-full eventSlider pb-[3.75rem!important]"
                 style={{ paddingBottom: "3.75rem!important" }}
                 breakpoints={{
                     // when window width is >= 640px

@@ -48,6 +48,7 @@ export default function Home({ dataStart, dataEvent, dataSetting }) {
             <div className="divider h-24"></div>
 
             <Stoerer1 data={dataStart.linkBox}></Stoerer1>
+            <div className="divider h-24"></div>
         </>
     );
 }
