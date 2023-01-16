@@ -1,13 +1,17 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { BiChevronDown } from "react-icons/bi";
-import { motion } from "framer-motion";
+import { config } from "./config";
 
 const TopLine1 = (props) => {
     return (
-        <nav className={`w-full bg-red-500 h-12   ${props.colspan}`}>
-            <div className="container m-auto grid grid-cols-12">
-                {/* <div className="col-span-4">{props.data.oeffnungszeiten.description}</div> */}
+        <nav className={`w-full bg-red-500 h-12 font-serif font-bold text-white    ${props.colspan}`}>
+            <div className="container flex items-center justify-around h-full text-sm">
+                <div className="col-span-4 opacity-80 ">{config.oeffnungszeiten}</div>
+                <div className="col-span-4 opacity-80 ">{config.phone}</div>
+                <div className="col-span-4 opacity-80 ">{config.email}</div>
+                <div className="col-span-4 opacity-80 ">{config.partner1}</div>
+                <div className="col-span-4 opacity-80 ">{config.partner2}</div>
             </div>
         </nav>
     );
