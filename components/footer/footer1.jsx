@@ -55,7 +55,7 @@ const Footer1 = (props) => {
                 <h4 className="font-oswald text-xl lg:text-xl font-semibold mb-8 lg:mb-8 ">{config.headline4}</h4>
                 {config.linksTitles.map((e, i) => {
                     return (
-                        <Link href={config.links[i]}>
+                        <Link key={`footerLinkKey${i}`} href={config.links[i]}>
                             <a className="block hover-underline-animation">
                                 <span>{e}</span>
                             </a>

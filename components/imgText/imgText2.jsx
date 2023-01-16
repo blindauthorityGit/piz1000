@@ -12,11 +12,11 @@ const TextImg2 = (props) => {
     return (
         <div className={`w-full container  sm:px-24 m-auto lg:gap-16 grid grid-cols-12  ${props.colspan}`}>
             <div className={`left col-span-12 lg:col-span-6 relative h-64 lg:h-auto ${props.order}`}>
-                <ImageGrid1
+                {/* <ImageGrid1
                     onClick={(e) => {
                         console.log(e.target);
                     }}
-                ></ImageGrid1>
+                ></ImageGrid1> */}
             </div>
             <div className="right px-8 sm:px-0 col-span-12 lg:col-span-6 flex flex-col justify-center ">
                 <p className="font-serif uppercase mt-4 lg:mt-0 text-base lg:text-lg mb-4">{config.topTitle}</p>
