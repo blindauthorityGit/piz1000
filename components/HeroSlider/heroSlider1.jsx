@@ -84,7 +84,7 @@ const HeroSlider1 = (props) => {
                                 <p className="subLine text text-white font-serif mt-10 ">{e.excerpt}</p>
                                 <Link href={e.link}>
                                     <button className="bg-red-500 hover-underline-animation  flex items-center justify-center text-white mt-8 py-3 px-6 min-w-[10rem] max-w-[12rem] font-oswald uppercase rounded-md">
-                                        <span className=""> {e.link}</span>
+                                        <span className="">Mehr</span>
                                     </button>
                                 </Link>
                             </div>

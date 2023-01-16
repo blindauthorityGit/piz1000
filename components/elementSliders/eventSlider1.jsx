@@ -100,9 +100,11 @@ const EventSlider1 = (props) => {
             >
                 {props.events.map((e, i) => {
                     return (
-                        <SwiperSlide key={`sliderKey${i}`} className="relative">
-                            <h3 className="font-oswald text-xl font-semibold">{e.zeit.date}</h3>
-                            <p className="font-serif mb-2 mt-1">{e.zeit.time}</p>
+                        <SwiperSlide key={`sliderKey${i}`} className="relative h-[450px!important]">
+                            <h3 className="font-oswald text-xl font-semibold">
+                                {e.zeit.date.split("-").reverse().join(".")}
+                            </h3>
+                            <p className="font-serif mb-2 mt-1">Beginn: {e.zeit.time}</p>
                             <Link href={`/events/${e.slug.current}`}>
                                 <div className="cursor-pointer relative overflow-hidden">
                                     <motion.img

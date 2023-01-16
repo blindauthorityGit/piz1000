@@ -29,7 +29,7 @@ const TextImg3 = (props) => {
                 <h2 className="font-oswald text-4xl lg:text-6xl font-semibold mb-2 lg:mb-6">{props.data.title}</h2>
                 <p className="font-serif italic mt-2 lg:mt-0 text-base lg:text-lg mb-8">{props.data.subTitle}</p>
                 <div className="text font-serif">
-                    <PortableText value={props.data.text[0]} />
+                    <PortableText value={props.data.text} />
                 </div>
             </div>
             <div className="right px-8 sm:px-0 col-span-12 lg:col-span-4 ">{props.children}</div>
