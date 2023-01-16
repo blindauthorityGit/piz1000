@@ -1,0 +1,129 @@
+import React, { useState } from "react";
+import Link from "next/link";
+// SWIPER
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
+
+//config
+import sliderConfig from "./slides/config";
+
+// animations
+import { motion } from "framer-motion";
+
+// icons
+import { BsArrowRightShort } from "react-icons/bs";
+
+//ImageBuilder
+import myConfiguredSanityClient from "../../client";
+
+import imageUrlBuilder from "@sanity/image-url";
+
+const builder = imageUrlBuilder(myConfiguredSanityClient);
+
+function urlFor(source) {
+    return builder.image(source);
+}
+
+const HeroSlider1 = (props) => {
+    const textMotion = {
+        rest: {
+            x: -50,
+            opacity: 0,
+
+            transition: {
+                duration: 0.85,
+                type: "tween",
+                ease: "easeIn",
+            },
+        },
+        hover: {
+            // color: "blue",
+            x: 0,
+            opacity: 1,
+
+            transition: {
+                duration: 0.5,
+                type: "tween",
+                ease: "easeOut",
+            },
+        },
+    };
+
+    return (
+        <div className={`h-[380px] sm:h-[580px] container m-auto relative ${props.colspan}`}>
+            <Swiper
+                // install Swiper modules
+                modules={[Navigation, Pagination, Scrollbar, A11y]}
+                spaceBetween={50}
+                slidesPerView={1}
+                navigation
+                pagination={{ clickable: true }}
+                scrollbar={{ draggable: true }}
+                onSwiper={(swiper) => console.log(swiper)}
+                onSlideChange={() => console.log("slide change")}
+                className="h-full "
+            >
+                {props.slides.map((e, i) => {
+                    return (
+                        <SwiperSlide
+                            className="bg-cover bg-center grid grid-cols-12 bg-no-repeat"
+                            style={{ backgroundImage: `url(${urlFor(e.image)})` }}
+                            key={`slide${i}`}
+                        >
+                            <div className="textBox z-40 px-16 sm:px-36 lg:px-48 col-span-12 lg:col-span-8 flex flex-col justify-center items-center sm:items-start">
+                                <p className="subLine text text-white font-serif mb-4 ">{e.topline}</p>
+                                <h1 className="text-white text-2xl sm:text-6xl font-oswald uppercase font-bold text-center sm:text-left">
+                                    {e.title}
+                                </h1>
+                                <p className="subLine text text-white font-serif mt-10 ">{e.excerpt}</p>
+                                <Link href={e.link}>
+                                    <button className="bg-red-500 hover-underline-animation  flex items-center justify-center text-white mt-8 py-3 px-6 min-w-[10rem] max-w-[12rem] font-oswald uppercase rounded-md">
+                                        <span className=""> {e.link}</span>
+                                    </button>
+                                </Link>
+                            </div>
+                            <div className="absolute w-full h-full bg-black top-0 opacity-40"></div>
+                            {/* <img src={e.image} alt="" /> */}
+                        </SwiperSlide>
+                    );
+                })}
+            </Swiper>
+            <style jsx>{`
+                .hover-underline-animation span {
+                    display: inline-block;
+                    position: relative;
+                    color: #fff;
+                }
+
+                .hover-underline-animation span::after {
+                    content: "";
+                    position: absolute;
+                    width: 100%;
+                    transform: scaleX(0);
+                    height: 2px;
+                    bottom: 0;
+                    left: 0;
+                    background-color: white;
+                    transform-origin: bottom right;
+                    transition: transform 0.25s ease-out;
+                }
+
+                .hover-underline-animation:hover span::after {
+                    transform: scaleX(1);
+                    transform-origin: bottom left;
+                }
+                .swiper-pagination-bullet {
+                    background-color: #fff !important;
+                }
+            `}</style>
+        </div>
+    );
+};
+
+export default HeroSlider1;

@@ -21,3 +21,16 @@ a {
 * {
   box-sizing: border-box;
 }
+
+:root {
+  --swiper-navigation-color: white;
+  --swiper-theme-color: white!important;
+}
+
+.eventSlider .swiper-pagination-bullet-active {
+  background-color: #000 !important;
+}
+
+.text p {
+  margin-bottom: 1.25rem;
+}
