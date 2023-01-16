@@ -23,6 +23,7 @@ module.exports = {
             colors: {
                 primary: "#ea4d46",
                 lightGrey: "#F9F9F9",
+                darkGrey: "#323232",
             },
         },
     },

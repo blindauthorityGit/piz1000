@@ -1,18 +1,13 @@
 import { useEffect, useState } from "react";
 
 import Head from "next/head";
-import Image from "next/image";
-import styles from "../styles/Home.module.css";
-import MainContainer from "../components/layout/mainContainer";
+
 import Breadcrumbs from "../components/Breadcrumbs";
 import client from "../client";
-import { Hero1 } from "../components/Hero/";
 
-import { HeroSlider1 } from "../components/HeroSlider";
+import { EventSlider1 } from "../components/elementSliders";
 import { SammlungSlider1 } from "../components/elementSliders";
-import { BasicText1 } from "../components/basicComps";
-import { InfoBox1 } from "../components/infoBoxes";
-import { Stoerer1 } from "../components/stoerer";
+import { ImgText2 } from "../components/imgText";
 
 export default function Sammlungen({ dataSammlungen, dataEvent, dataSetting, dataInfos }) {
     const [linkList, setLinkList] = useState([
@@ -37,18 +32,13 @@ export default function Sammlungen({ dataSammlungen, dataEvent, dataSetting, dat
 
             <Breadcrumbs links={linkList}></Breadcrumbs>
             <SammlungSlider1 data={dataSammlungen.sammlungenArray}></SammlungSlider1>
-            {/* <Hero1 height="h-[480px]" bgImage={dataBesucher.mainImage}></Hero1>
-
-            <div className="divider h-24"></div>
-            <InfoBox1 data={dataInfos.infoBoxes}></InfoBox1>
-            <div className="divider h-12"></div>
-            <BasicText1 data={dataBesucher.basicTexts[0]}></BasicText1>
             <div className="divider h-12"></div>
 
-            <BasicText1 data={dataBesucher.basicTexts[1]}></BasicText1>
+            <ImgText2 data={dataSammlungen}></ImgText2>
             <div className="divider h-24"></div>
 
-            <div className="divider h-24"></div> */}
+            <EventSlider1 events={dataEvent}></EventSlider1>
+            <div className="divider h-24"></div>
         </>
     );
 }
