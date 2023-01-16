@@ -3,13 +3,8 @@ import client, { getAsset } from "../../client";
 import Head from "next/head";
 import { useState, useEffect, useRef } from "react";
 
-import { Hero1 } from "../../components/Hero/";
-import Breadcrumbs from "../../components/Breadcrumbs";
 import { CalenderGrid1 } from "../../components/calenderGrid";
 import { ElementGrid1 } from "../../components/elementGrid";
-import { Info1 } from "../../components/info";
-import { GallerySlider1 } from "../../components/elementSliders";
-import { EventSlider1 } from "../../components/elementSliders";
 
 const Events = ({ dataAll }) => {
     const [linkList, setLinkList] = useState([

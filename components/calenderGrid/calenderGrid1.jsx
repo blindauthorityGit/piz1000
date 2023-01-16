@@ -12,7 +12,7 @@ const CalenderGrid1 = (props) => {
         >
             {props.data.map((e, i) => {
                 return (
-                    <div className="col-span-6 lg:col-span-4 h-full">
+                    <div key={`calGridKey${i}`} className="col-span-6 lg:col-span-4 h-full">
                         <Element
                             date={e.zeit.date}
                             year={e.zeit.date}

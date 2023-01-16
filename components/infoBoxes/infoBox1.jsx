@@ -17,7 +17,7 @@ const InfoBox1 = (props) => {
     return (
         <div className="w-full container  sm:px-24 m-auto lg:gap-16 grid grid-cols-12">
             {props.data.map((e, i) => {
-                return <Element icon={e.icon} title={e.title} text={e.text}></Element>;
+                return <Element key={`infoKey${i}`} icon={e.icon} title={e.title} text={e.text}></Element>;
             })}
         </div>
     );
