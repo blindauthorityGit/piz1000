@@ -38,6 +38,7 @@ export default function About({ dataAbout, dataEvent, dataSetting, dataInfos }) 
 
             <ImgText1 data={dataAbout.textImageBoxes[0]}></ImgText1>
             <ImgText1 data={dataAbout.textImageBoxes[1]}></ImgText1>
+            <ImgText1 data={dataAbout.textImageBoxes[2]}></ImgText1>
             <div className="divider h-24"></div>
             <InfoBox1 data={dataInfos.infoBoxes}></InfoBox1>
             <div className="divider h-24"></div>

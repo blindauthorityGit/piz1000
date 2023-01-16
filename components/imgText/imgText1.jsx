@@ -48,7 +48,7 @@ const TextImg1 = (props) => {
                     <p className="font-serif uppercase mt-4 lg:mt-0 text-base lg:text-lg mb-8">{props.data.subLine}</p>
                 ) : null}
                 <div className="text font-serif">
-                    <PortableText value={props.data.text[0]} />
+                    <PortableText value={props.data.text} />
                 </div>
                 {props.data.link ? (
                     <Link href={props.data.link}>

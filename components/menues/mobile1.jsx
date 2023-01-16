@@ -77,7 +77,10 @@ const Mobile1 = (props) => {
                                             <Link href="/sammlungen">
                                                 <li className="mb-4">Sammlungen</li>
                                             </Link>
-                                            <Link href="/leitbild">
+                                            <Link
+                                                href="https://atelierbuchner.at/piz1000/Museumsleitbild.pdf"
+                                                target="_blank"
+                                            >
                                                 <li className="mb-4">Leitbild</li>
                                             </Link>
                                             <Link href="/kontakt">
