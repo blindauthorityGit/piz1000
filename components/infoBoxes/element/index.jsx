@@ -19,20 +19,22 @@ const Element = (props) => {
     return (
         <div className="col-span-12 lg:col-span-6">
             <div className={`grid grid-cols-12 h-full  ${props.colspan}`}>
-                <div className="col-span-3 bg-primary font-oswald p-4 h-full text-center text-white">
-                    <div className="image">
+                <div className="col-span-3 bg-primary font-oswald p-4 h-full text-center text-white p-8">
+                    <div className="image relative p-4">
                         <Image
                             // {...ImagePropsGallery(i)}
                             src={urlFor(props.icon).url()}
-                            layout="fill"
+                            layout="responsive"
+                            width={100}
+                            height={100}
                             loading="lazy"
-                            objectFit="cover"
+                            objectFit="contain"
                             alt="hero"
                         />
                     </div>
-                    <div className="title">{props.title}</div>
+                    <div className="title text-3xl font-bold">{props.title}</div>
                 </div>
-                <div className="col-span-9 pl-4 h-full">
+                <div className="col-span-9  h-full bg-lightGrey px-8 py-8">
                     <div className="font-serif">
                         <PortableText value={props.text} />
                     </div>
