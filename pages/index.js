@@ -32,7 +32,7 @@ export default function Home({ dataStart, dataEvent, dataSetting }) {
                 <meta name="description" content={dataSetting.seo.mainSEO.description} />
                 <meta name="keywords" content={dataSetting.seo.mainSEO.keywords.map((e) => e)} />
                 <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-                <link rel="icon" href={urlFor(dataSetting.favicon)} />
+                {/* <link rel="icon" href={urlFor(dataSetting.favicon)} /> */}
                 <meta property="og:type" content="website" />
                 <meta property="og:url" content="https://www.piz1000.at" />
                 <meta
