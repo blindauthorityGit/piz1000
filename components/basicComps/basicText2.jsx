@@ -15,7 +15,7 @@ function urlFor(source) {
 
 const BasicText1 = (props) => {
     return (
-        <div className={`w-full container  sm:px-24 m-auto   ${props.colspan}`}>
+        <div className={`w-full container px-8 sm:px-24 m-auto   ${props.colspan}`}>
             <h2
                 className={`font-oswald text-4xl lg:text-6xl font-semibold ${
                     props.data.subLine ? "mb-1 lg:mb-2" : "mb-8 lg:mb-12"

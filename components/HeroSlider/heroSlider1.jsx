@@ -56,7 +56,7 @@ const HeroSlider1 = (props) => {
     };
 
     return (
-        <div className={`h-[380px] sm:h-[580px] container m-auto relative ${props.colspan}`}>
+        <div className={`h-[calc(100vh-100px)] sm:h-[580px] container m-auto relative ${props.colspan}`}>
             <Swiper
                 // install Swiper modules
                 modules={[Navigation, Pagination, Scrollbar, A11y]}
@@ -68,6 +68,7 @@ const HeroSlider1 = (props) => {
                 onSwiper={(swiper) => console.log(swiper)}
                 onSlideChange={() => console.log("slide change")}
                 className="h-full "
+                autoplay={{ delay: 3000, disableOnInteraction: false, stopOnLast: true }}
             >
                 {props.slides.map((e, i) => {
                     return (
@@ -76,13 +77,26 @@ const HeroSlider1 = (props) => {
                             style={{ backgroundImage: `url(${urlFor(e.image)})` }}
                             key={`slide${i}`}
                         >
+                            {console.log(
+                                e.links.external === undefined ? e.links.internal.slug.current : e.links.external
+                            )}
                             <div className="textBox z-40 px-16 sm:px-36 lg:px-48 col-span-12 lg:col-span-8 flex flex-col justify-center items-center sm:items-start">
-                                <p className="subLine text text-white font-serif mb-4 ">{e.topline}</p>
+                                <p className="subLine text text-white font-oswald mb-4 text-lg font-semibold tracking-wide text-center sm:text-left">
+                                    {e.topline}
+                                </p>
                                 <h1 className="text-white text-2xl sm:text-6xl font-oswald uppercase font-bold text-center sm:text-left">
                                     {e.title}
                                 </h1>
-                                <p className="subLine text text-white font-serif mt-10 ">{e.excerpt}</p>
-                                <Link href={e.link}>
+                                <p className="subLine hidden sm:block text text-white font-serif mt-6 ">{e.excerpt}</p>
+                                <Link
+                                    href={
+                                        e.links.external === undefined
+                                            ? e.links.internal._type == "event"
+                                                ? "/events/" + e.links.internal.slug.current
+                                                : "/blog/" + e.links.internal.slug.current
+                                            : e.links.external
+                                    }
+                                >
                                     <button className="bg-red-500 hover-underline-animation  flex items-center justify-center text-white mt-8 py-3 px-6 min-w-[10rem] max-w-[12rem] font-oswald uppercase rounded-md">
                                         <span className="">Mehr</span>
                                     </button>

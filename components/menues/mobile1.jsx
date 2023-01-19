@@ -51,26 +51,26 @@ const Mobile1 = (props) => {
             <motion.nav
                 variants={boxMotion}
                 className={`navbar slide-in-right ${props.klasse} 
-                 w-full h-screen bg-white fixed z-40 `}
+                 w-full h-screen bg-white fixed z-50 top-0 `}
             >
                 <div onClick={props.onClick} className="closer absolute right-8 top-8">
                     <GrClose></GrClose>
                 </div>
-                <div className="container h-screen py-16 px-16 font-europa tracking-wider">
+                <div className="container h-screen py-12 px-12 font-europa tracking-wider">
                     <div className="middle">
-                        <Link href="/start">
+                        <Link href="/">
                             <a>
-                                <img src={Logo.src} width="230" alt="Logo" />
+                                <img src={Logo.src} width="150" alt="Logo" />
                             </a>
                         </Link>
                     </div>
-                    <div className="MenuItems text-2xl sm:text-4xl pt-8 font-oswald font-bold">
+                    <div className="MenuItems text-2xl sm:text-4xl pt-4 font-oswald font-bold">
                         <ul className="">
                             <li className="mb-4">
                                 <div className="wrap dropdown bg-white  ">
                                     <a className="text-text block my-4 subNav relative hover:text-primaryColor cursor-pointer">
                                         Museum
-                                        <ul className="pl-8 mt-6 mb-6">
+                                        <ul className="pl-8 mt-4 mb-4">
                                             <Link href="/about">
                                                 <li className="mb-4">Über uns</li>
                                             </Link>

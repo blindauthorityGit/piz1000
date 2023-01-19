@@ -69,7 +69,9 @@ export async function getStaticProps() {
     const dataBesucher = await resBesucher[0];
 
     const resEvent = await client.fetch(`*[_type == "event"]`);
-    const dataEvent = await resEvent;
+    const dataEvent = await resEvent.sort((a, b) => {
+        return a.zeit.date.localeCompare(b.zeit.date);
+    });
 
     const resInfos = await client.fetch(`*[_type == "infos"]`);
     const dataInfos = await resInfos[0];

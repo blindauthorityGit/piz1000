@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { BiChevronDown } from "react-icons/bi";
 import { motion, useAnimation } from "framer-motion";
+import { useRouter } from "next/router";
 
 // Overlay
 import Overlay from "../modal/overlay";
@@ -12,6 +13,8 @@ import Modal from "../modal/modal";
 import Mobile1 from "./mobile1";
 
 const Menu1 = (props) => {
+    const router = useRouter();
+
     const [showOverlay, setShowOverlay] = useState(false);
 
     const navRef = useRef(null);
@@ -30,6 +33,18 @@ const Menu1 = (props) => {
             window.removeEventListener("scroll", handleScroll);
         };
     }, []);
+
+    useEffect(() => {
+        // Listen for changes in the route
+        const handleRouteChange = () => {
+            setShowOverlay(false);
+        };
+        router.events.on("routeChangeComplete", handleRouteChange);
+
+        return () => {
+            router.events.off("routeChangeComplete", handleRouteChange);
+        };
+    }, [router.events]);
 
     const onEnter = (e) => {
         console.log(e.target);
@@ -118,7 +133,7 @@ const Menu1 = (props) => {
         <>
             {showOverlay ? <Overlay onClick={(e) => setShowOverlay(false)}></Overlay> : null}
             {showOverlay ? <Mobile1 onClick={(e) => setShowOverlay(false)}></Mobile1> : null}
-            <nav ref={navRef} className={`w-full bg-white z-50  ${props.colspan}`}>
+            <nav ref={navRef} className={`w-full bg-white z-40  ${props.colspan}`}>
                 <div className="container grid grid-cols-12 m-auto items-center px-8 py-4 sm:px-16 sm:py-4 lg:px-0 lg:py-0">
                     {/* Background Image */}
                     <div className="logo col-span-4 md:col-span-2 ">
@@ -164,7 +179,7 @@ const Menu1 = (props) => {
                                                             key={`submenuKey${i}`}
                                                             className="min-w-max mb-3"
                                                         >
-                                                            <Link href={`/${e.slug}`}>
+                                                            <Link href={`${e.external ? "" : "/"}${e.slug}`}>
                                                                 <a className="hover:text-red-500 font-semibold">
                                                                     {e.title}
                                                                 </a>

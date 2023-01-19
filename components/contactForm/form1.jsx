@@ -38,17 +38,17 @@ const Form1 = (props) => {
         }
     }
     return (
-        <MainContainer width="container sm:pt-16 sm:pt-16 sm:pb-12  relative px-12 lg:px-32">
+        <MainContainer width="container sm:pt-16 sm:pt-16 sm:pb-12  relative px-8 sm:px-12 lg:px-32">
             <div className="col-span-12 lg:col-span-8 grid grid-cols-12">
                 <form
                     onSubmit={handleSubmit(onSubmitForm)}
-                    className="col-span-12 grid grid-cols-12 footer topKontakt sm:gap-8 font-serif"
+                    className="col-span-12 grid gap-2 grid-cols-12 footer topKontakt sm:gap-8 font-serif"
                     action=""
                 >
                     <input
                         {...register("name", { required: true })}
                         id="name"
-                        className="col-span-12 border border-darkGrey p-4"
+                        className="col-span-12 border  p-4"
                         type="text"
                         placeholder="Name"
                     />
@@ -58,7 +58,7 @@ const Form1 = (props) => {
                         {...register("email", { required: true })}
                         name="email"
                         id="email"
-                        className="col-span-12 lg:col-span-6 border border-darkGrey p-4"
+                        className="col-span-12 lg:col-span-6   p-4"
                         type="email"
                         placeholder="Email"
                     />
@@ -68,15 +68,30 @@ const Form1 = (props) => {
                         {...register("phone", { required: true })}
                         name="phone"
                         id="phone"
-                        className="col-span-12 lg:col-span-6 border border-darkGrey p-4"
+                        className="col-span-12 lg:col-span-6  p-4"
                         type="text"
                         placeholder="Telefonnummer"
                     />
                     {errors.phone && <Error klasse="block col-span-12">Bitte geben Sie Ihre Telefonnummer an</Error>}
+                    <select
+                        {...register("betreff", { required: true })}
+                        name="betreff"
+                        id="phbetreffone"
+                        className="col-span-12 lg:col-span-6   p-4"
+                        type="text"
+                        placeholder="Betreff"
+                    >
+                        <option value="general_inquiry" selected>
+                            Allgemeine Informationen
+                        </option>
+                        <option value="event_inquiry">Veranstaltungen</option>
+                        <option value="visit_inquiry">Besuch / Führungen</option>
+                    </select>
+                    {errors.phone && <Error klasse="block col-span-12">Bitte geben Sie Ihre Telefonnummer an</Error>}
 
                     <textarea
                         {...register("message", { required: true })}
-                        className="col-span-12 border border-darkGrey p-4"
+                        className="col-span-12 border  p-4"
                         name="message"
                         id="message"
                         cols="20"

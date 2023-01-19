@@ -6,6 +6,17 @@ import { useState, useEffect, useRef } from "react";
 import { CalenderGrid1 } from "../../components/calenderGrid";
 import { ElementGrid1 } from "../../components/elementGrid";
 
+//ImageBuilder
+import myConfiguredSanityClient from "../../client";
+
+import imageUrlBuilder from "@sanity/image-url";
+
+const builder = imageUrlBuilder(myConfiguredSanityClient);
+
+function urlFor(source) {
+    return builder.image(source);
+}
+
 const Events = ({ dataAll }) => {
     const [linkList, setLinkList] = useState([
         {
@@ -38,7 +49,9 @@ export default Events;
 
 export const getStaticProps = async (context) => {
     const resAll = await client.fetch(`*[_type in ["event"] ]`);
-    const dataAll = await resAll;
+    const dataAll = await resAll.sort((a, b) => {
+        return a.zeit.date.localeCompare(b.zeit.date);
+    });
     // const dataAll = await resAll.sort((a, b) =>
     //     a._createdAt < b._createdAt ? -1 : a._createdAt > b._createdAt ? 1 : 0
     // );

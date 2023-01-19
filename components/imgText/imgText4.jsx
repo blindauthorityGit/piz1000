@@ -18,28 +18,18 @@ function urlFor(source) {
     return builder.image(source);
 }
 
-const TextImg1 = (props) => {
+const TextImg4 = (props) => {
     return (
         <div className={`w-full container  sm:px-24 m-auto lg:gap-16 grid grid-cols-12  ${props.colspan}`}>
             <div
-                className={`left col-span-12 lg:col-span-6 relative h-64 lg:h-auto ${
+                className={`left col-span-12 lg:col-span-8 relative  ${
                     props.data.order ? "lg:order-last" : "lg:order-first"
                 }`}
             >
-                <Image
-                    // {...ImagePropsGallery(i)}
-                    src={urlFor(props.data.image).url()}
-                    layout="fill"
-                    loading="lazy"
-                    objectFit="cover"
-                    alt="hero"
-                />
-            </div>
-            <div className="right px-8 sm:px-0 col-span-12 lg:col-span-6 flex flex-col justify-center ">
                 <p className="font-serif uppercase mt-4 lg:mt-0 text-base lg:text-lg mb-4">{props.data.topTitle}</p>
                 <h2
                     className={`font-oswald text-4xl lg:text-6xl font-semibold ${
-                        props.data.subLine ? "mb-1 lg:mb-4" : "mb-8 lg:mb-12"
+                        props.data.subLine ? "mb-1 lg:mb-2" : "mb-8 lg:mb-12"
                     }`}
                 >
                     {props.data.title}
@@ -47,7 +37,17 @@ const TextImg1 = (props) => {
                 {props.data.subLine ? (
                     <p className="font-serif uppercase mt-4 lg:mt-0 text-base lg:text-lg mb-8">{props.data.subLine}</p>
                 ) : null}
-                <div className="text text-sm leading-relaxed font-serif">
+                <div className="relative h-[460px] mb-8">
+                    <Image
+                        // {...ImagePropsGallery(i)}
+                        src={urlFor(props.data.image).url()}
+                        layout="fill"
+                        loading="lazy"
+                        objectFit="cover"
+                        alt="hero"
+                    />
+                </div>
+                <div className="text font-serif text-sm leading-relaxed">
                     <PortableText value={props.data.text} />
                 </div>
                 {props.data.link ? (
@@ -58,6 +58,7 @@ const TextImg1 = (props) => {
                     </Link>
                 ) : null}
             </div>
+
             <style jsx>{`
                 .hover-underline-animation span {
                     display: inline-block;
@@ -87,4 +88,4 @@ const TextImg1 = (props) => {
     );
 };
 
-export default TextImg1;
+export default TextImg4;

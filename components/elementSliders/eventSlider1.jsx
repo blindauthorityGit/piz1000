@@ -100,11 +100,11 @@ const EventSlider1 = (props) => {
             >
                 {props.events.map((e, i) => {
                     return (
-                        <SwiperSlide key={`sliderKey${i}`} className="relative h-[450px!important]">
+                        <SwiperSlide key={`sliderKey${i}`} className="relative min-h-[400px!important]">
                             <h3 className="font-oswald text-xl font-semibold">
                                 {e.zeit.date.split("-").reverse().join(".")}
                             </h3>
-                            <p className="font-serif mb-2 mt-1">Beginn: {e.zeit.time}</p>
+                            <p className="font-serif text-sm mb-2 mt-1">Beginn: {e.zeit.time}</p>
                             <Link href={`/events/${e.slug.current}`}>
                                 <div className="cursor-pointer relative overflow-hidden">
                                     <motion.img
@@ -117,10 +117,10 @@ const EventSlider1 = (props) => {
                                     />
                                 </div>
                             </Link>
-                            <h2 className="font-oswald font-semibold text-2xl mt-3">{e.title}</h2>
-                            <p className="font-serif mb-20 mt-2">{e.subTitle}</p>
+                            <h2 className="font-oswald font-semibold text-xl mt-3">{e.title}</h2>
+                            <p className="font-serif mb-20 mt-2 text-sm">{e.subTitle}</p>
                             <Link href={`/events/${e.slug.current}`}>
-                                <button className="bg-white border absolute bottom-0 border-black text-black hover-underline-animation  flex items-center justify-center mt-8 py-3 px-6 w-full lg:w-auto min-w-[10rem] lg:max-w-[12rem] font-oswald uppercase rounded-md">
+                                <button className=" border absolute bottom-0 border-black text-black hover-underline-animation  flex items-center justify-center mt-8 py-3 px-6 w-full lg:w-auto min-w-[10rem] lg:max-w-[12rem] font-oswald uppercase rounded-md">
                                     <span className=""> Mehr</span>
                                 </button>
                             </Link>

@@ -14,6 +14,17 @@ import { BasicText1 } from "../components/basicComps";
 import { InfoBox1 } from "../components/infoBoxes";
 import { Stoerer1 } from "../components/stoerer";
 
+//ImageBuilder
+import myConfiguredSanityClient from "../client";
+
+import imageUrlBuilder from "@sanity/image-url";
+
+const builder = imageUrlBuilder(myConfiguredSanityClient);
+
+function urlFor(source) {
+    return builder.image(source);
+}
+
 export default function Besucher({ dataBesucher, dataEvent, dataSetting, dataInfos }) {
     const [linkList, setLinkList] = useState([
         {
@@ -32,13 +43,34 @@ export default function Besucher({ dataBesucher, dataEvent, dataSetting, dataInf
     return (
         <>
             <Head>
-                <title>Site title</title>
+                <title>{dataBesucher.title}</title>
+                <meta name="description" content={dataBesucher.seo.mainSEO.description} />
+                <meta
+                    name="keywords"
+                    content={dataBesucher.seo.mainSEO.keywords && dataBesucher.seo.mainSEO.keywords.map((e) => e)}
+                />
+                <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+                <link rel="icon" href={urlFor(dataSetting.favicon)} />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://www.piz1000.at" />
+                <meta
+                    property="og:image"
+                    content={dataBesucher.seo.advancedSEO.ogImage ? urlFor(dataBesucher.seo.advancedSEO.ogImage) : null}
+                />
+                <meta
+                    property="og:description"
+                    content={
+                        dataBesucher.seo.advancedSEO.ogDescription ? dataBesucher.seo.advancedSEO.ogDescription : null
+                    }
+                />
+                <meta property="og:site_name" content="PIZ 1000 - Pittner Regionalmuseum" />
+                <meta property="og:locale" content="de_DE" />
             </Head>
 
             <Breadcrumbs links={linkList}></Breadcrumbs>
             <Hero1 height="h-[480px]" bgImage={dataBesucher.mainImage}></Hero1>
 
-            <div className="divider h-24"></div>
+            <div className="divider h-6"></div>
             <InfoBox1 data={dataInfos.infoBoxes}></InfoBox1>
             <div className="divider h-12"></div>
             <BasicText1 data={dataBesucher.basicTexts[0]}></BasicText1>
@@ -61,7 +93,9 @@ export async function getStaticProps() {
     const dataBesucher = await resBesucher[0];
 
     const resEvent = await client.fetch(`*[_type == "event"]`);
-    const dataEvent = await resEvent;
+    const dataEvent = await resEvent.sort((a, b) => {
+        return a.zeit.date.localeCompare(b.zeit.date);
+    });
 
     const resInfos = await client.fetch(`*[_type == "infos"]`);
     const dataInfos = await resInfos[0];

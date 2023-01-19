@@ -8,19 +8,21 @@ const menuItems = [
         subMenuItems: [
             {
                 title: "Über uns",
-                slug: "ueberuns",
+                slug: "about",
             },
             {
                 title: "Sammlung",
-                slug: "sammlung",
+                slug: "sammlungen",
             },
             {
                 title: "Leitbild",
                 slug: "leitbild",
+                external: true,
             },
             {
                 title: "360° Besuch",
-                slug: "360besuch",
+                slug: "https://pitten.panaustria.at/index.html?startpano=pano289",
+                external: true,
             },
         ],
     },
@@ -31,7 +33,7 @@ const menuItems = [
     },
     {
         title: "Programm",
-        slug: "programm",
+        slug: "events",
         subMenu: false,
     },
     {

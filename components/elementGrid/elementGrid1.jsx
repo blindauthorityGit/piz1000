@@ -76,7 +76,7 @@ const ElementGrid1 = (props) => {
                             <h2 className="font-oswald font-semibold text-2xl mt-3">{e.title}</h2>
                             <p className="font-serif mb-20 mt-2">{e.subTitle}</p>
                             <Link href={`/events/${e.slug.current}`}>
-                                <button className="bg-white border absolute bottom-0 border-black text-black hover-underline-animation  flex items-center justify-center mt-8 py-3 px-6 w-full lg:w-auto min-w-[10rem] lg:max-w-[12rem] font-oswald uppercase rounded-md">
+                                <button className=" border absolute bottom-0 border-black text-black hover-underline-animation  flex items-center justify-center mt-8 py-3 px-6 w-full lg:w-auto min-w-[10rem] lg:max-w-[12rem] font-oswald uppercase rounded-md">
                                     <span className=""> Mehr</span>
                                 </button>
                             </Link>

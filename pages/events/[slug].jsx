@@ -33,17 +33,17 @@ const Event = ({ post, dataAll }) => {
                 <title>{post.seo.title}</title>
                 <meta name="description" content={post.seo.description} />
             </Head>
-            <Hero1 height="h-[480px]" bgImage={post.mainImage}></Hero1>
+            <Hero1 height="h-[200px] sm:h-[480px]" bgImage={post.mainImage}></Hero1>
             <Breadcrumbs links={linkList}></Breadcrumbs>
             <ImgText3 data={post}>
                 <Info1 data={post} bg="bg-[#F9F9F9]"></Info1>
             </ImgText3>
             {post.gallery ? <GallerySlider1 data={post.gallery}></GallerySlider1> : null}
 
-            <div className="divider h-24"></div>
+            <div className="divider h-12 sm:h-24"></div>
 
             <EventSlider1 nonstart events={dataAll}></EventSlider1>
-            <div className="divider h-24"></div>
+            <div className="divider h-12 sm:h-24"></div>
         </>
     );
 };
@@ -72,7 +72,11 @@ export const getStaticProps = async (context) => {
     const data = await res;
 
     const resAll = await client.fetch(`*[_type in ["event"] ]`);
-    const dataAll = await resAll.filter((e) => e.slug.current !== slug);
+    const dataAll = await resAll
+        .filter((e) => e.slug.current !== slug)
+        .sort((a, b) => {
+            return a.zeit.date.localeCompare(b.zeit.date);
+        });
     // const dataAll = await resAll.sort((a, b) =>
     //     a._createdAt < b._createdAt ? -1 : a._createdAt > b._createdAt ? 1 : 0
     // );

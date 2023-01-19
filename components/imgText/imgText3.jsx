@@ -20,19 +20,19 @@ function urlFor(source) {
 
 const TextImg3 = (props) => {
     return (
-        <div className={`w-full container  sm:px-24 m-auto lg:gap-16 grid grid-cols-12  ${props.colspan}`}>
+        <div className={`w-full container px-8 sm:px-24 m-auto lg:gap-16 grid grid-cols-12  ${props.colspan}`}>
             <div
-                className={`left col-span-12 lg:col-span-8 relative  lg:h-auto ${
+                className={`left col-span-12 lg:col-span-6 relative  lg:h-auto ${
                     props.data.order ? "order-last" : "order-first"
                 }`}
             >
                 <h2 className="font-oswald text-4xl lg:text-6xl font-semibold mb-2 lg:mb-6">{props.data.title}</h2>
                 <p className="font-serif italic mt-2 lg:mt-0 text-base lg:text-lg mb-8">{props.data.subTitle}</p>
-                <div className="text font-serif">
+                <div className="text font-serif text-sm leading-relaxed">
                     <PortableText value={props.data.text} />
                 </div>
             </div>
-            <div className="right px-8 sm:px-0 col-span-12 lg:col-span-4 ">{props.children}</div>
+            <div className="right sm:px-2 sm:px-0 col-span-12 lg:col-span-6 ">{props.children}</div>
             <style jsx>{`
                 .hover-underline-animation span {
                     display: inline-block;

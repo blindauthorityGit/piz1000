@@ -19,8 +19,8 @@ const Element = (props) => {
     return (
         <div className="col-span-12 lg:col-span-6">
             <div className={`grid grid-cols-12 h-full  ${props.colspan}`}>
-                <div className="col-span-3 bg-primary font-oswald p-4 h-full text-center text-white p-8">
-                    <div className="image relative p-4">
+                <div className="col-span-12 sm:col-span-3  bg-primary font-oswald p-4 h-full text-center text-white p-8">
+                    <div className="image relative p-4 hidden sm:block">
                         <Image
                             // {...ImagePropsGallery(i)}
                             src={urlFor(props.icon).url()}

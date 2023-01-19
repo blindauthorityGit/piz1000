@@ -13,7 +13,7 @@ const TextImg2 = (props) => {
             <div className="right px-8 sm:px-0 col-span-12 lg:col-span-6 flex flex-col justify-center ">
                 {/* <p className="font-serif uppercase mt-4 lg:mt-0 text-base lg:text-lg mb-4">{config.topTitle}</p> */}
                 <h2 className="font-oswald text-4xl lg:text-6xl font-semibold mb-8 lg:mb-12">{props.data.title}</h2>
-                <div className="text font-serif">
+                <div className="text font-serif text-sm leading-relaxed">
                     {" "}
                     <PortableText value={props.data.text} />
                 </div>

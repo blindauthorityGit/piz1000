@@ -16,7 +16,7 @@ function urlFor(source) {
 
 const Info2 = (props) => {
     return (
-        <div className={`col-span-12 grid grid-cols-12  sm:px-6 py-12 ${props.bg}`}>
+        <div className={`col-span-12 grid grid-cols-12 px-4 sm:px-6 py-12 ${props.bg}`}>
             <div className={`left font-oswald font-bold text-lg col-span-4`}>Kontakt:</div>
             <div className={`right font-serif col-span-8 mb-4`}>
                 {props.data.kontakt.adresse}
