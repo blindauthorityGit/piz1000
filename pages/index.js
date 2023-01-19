@@ -96,9 +96,7 @@ export async function getStaticProps() {
     const dataStart = await resStart[0];
 
     const resEvent = await client.fetch(`*[_type == "event"]`);
-    const dataEvent = await resEvent.sort((a, b) => {
-        return a.zeit.date.localeCompare(b.zeit.date);
-    });
+    const dataEvent = await resEvent;
     return {
         props: {
             dataStart,
