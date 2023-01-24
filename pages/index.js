@@ -55,7 +55,7 @@ export default function Home({ dataStart, dataEvent, dataBlog, dataSetting }) {
 
             <EventSlider1 events={dataEvent}></EventSlider1>
             <div className="divider h-12"></div>
-            <div className="w-full bg-white py-12">
+            <div className="w-full bg-white py-6">
                 <BlogGrid1 data={dataBlog} alle></BlogGrid1>
             </div>
             <div className="divider h-12"></div>

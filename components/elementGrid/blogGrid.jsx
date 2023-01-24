@@ -52,7 +52,7 @@ const BlogGrid1 = (props) => {
         <div
             className={`${
                 isLoaded ? "opacity-100" : "opacity-0"
-            } container px-8 sm:px-24 m-auto relative sm:mt-12 sm:mb-12 ${props.colspan}`}
+            } container px-8 sm:px-24 m-auto relative sm:mt-12 sm:mb-6 ${props.colspan}`}
         >
             <div className="grid grid-cols-12 sm:gap-12 ">
                 {props.data.map((e, i) => {

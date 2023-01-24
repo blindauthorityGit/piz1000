@@ -3,7 +3,7 @@ import { FaFacebook, FaInstagram } from "react-icons/fa";
 const menuItems = [
     {
         title: "Museum",
-        slug: "museum",
+        slug: "about",
         subMenu: true,
         subMenuItems: [
             {
@@ -16,8 +16,12 @@ const menuItems = [
             },
             {
                 title: "Leitbild",
-                slug: "leitbild",
+                slug: "https://cdn.sanity.io/files/7all625u/dev/5a6f73b99aceb4c681ca63eb1b1ac1f447064ae7.pdf",
                 external: true,
+            },
+            {
+                title: "News",
+                slug: "blog",
             },
             {
                 title: "360° Besuch",
@@ -48,11 +52,11 @@ const socialMedia = [
         link: "http://www.facebook.com",
         icon: <FaFacebook></FaFacebook>,
     },
-    {
-        title: "Inbstagram",
-        link: "http://www.instagram.com",
-        icon: <FaInstagram></FaInstagram>,
-    },
+    // {
+    //     title: "Inbstagram",
+    //     link: "http://www.instagram.com",
+    //     icon: <FaInstagram></FaInstagram>,
+    // },
 ];
 
 export { menuItems, socialMedia };

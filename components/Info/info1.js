@@ -24,8 +24,8 @@ const Info1 = (props) => {
             <div className={`right font-serif col-span-8 mb-4`}>{props.data.location}</div>
             <div className={`left  font-oswald font-bold text-lg  col-span-4`}>Eintritt:</div>
             <div className={`right font-serif col-span-8 mb-4`}>{props.data.preis}</div>
-            <div className={`left  font-oswald font-bold text-lg  col-span-4`}>Kontakt:</div>
-            <div className={`right font-serif col-span-8 mb-4`}>{props.data.kontakt}</div>
+            {/* <div className={`left  font-oswald font-bold text-lg  col-span-4`}>Kontakt:</div>
+            <div className={`right font-serif col-span-8 mb-4`}>{props.data.kontakt}</div> */}
 
             <style jsx>{`
                 .hover-underline-animation span {
