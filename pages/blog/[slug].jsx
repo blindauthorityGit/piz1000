@@ -5,7 +5,7 @@ import { useState, useEffect, useRef } from "react";
 
 import { Hero1 } from "../../components/Hero/";
 import Breadcrumbs from "../../components/Breadcrumbs";
-import { ImgText3 } from "../../components/imgText";
+import { ImgText5 } from "../../components/imgText";
 import { Info1 } from "../../components/Info";
 import { GallerySlider1 } from "../../components/elementSliders";
 import { EventSlider1 } from "../../components/elementSliders";
@@ -35,14 +35,12 @@ const Blog = ({ post, dataAll }) => {
             </Head>
             <Hero1 height="h-[480px]" bgImage={post.mainImage}></Hero1>
             <Breadcrumbs links={linkList}></Breadcrumbs>
-            <ImgText3 data={post}>
-                <Info1 data={post} bg="bg-[#F9F9F9]"></Info1>
-            </ImgText3>
+            <ImgText5 data={post}></ImgText5>
             {post.gallery ? <GallerySlider1 data={post.gallery}></GallerySlider1> : null}
 
             <div className="divider h-24"></div>
 
-            <EventSlider1 nonstart events={dataAll}></EventSlider1>
+            {/* <EventSlider1 nonstart events={dataAll}></EventSlider1> */}
             <div className="divider h-24"></div>
         </>
     );

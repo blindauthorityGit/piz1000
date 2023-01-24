@@ -5,6 +5,7 @@ import client from "../client";
 
 import { HeroSlider1 } from "../components/HeroSlider";
 import { EventSlider1 } from "../components/elementSliders";
+import { BlogGrid1 } from "../components/elementGrid";
 import { ImgText1 } from "../components/imgText";
 import { Stoerer1 } from "../components/stoerer";
 import { Logos1 } from "../components/logos";
@@ -20,9 +21,9 @@ function urlFor(source) {
     return builder.image(source);
 }
 
-export default function Home({ dataStart, dataEvent, dataSetting }) {
+export default function Home({ dataStart, dataEvent, dataBlog, dataSetting }) {
     useEffect(() => {
-        console.log(dataSetting.logosPartner);
+        console.log(dataBlog);
     }, []);
 
     return (
@@ -54,7 +55,10 @@ export default function Home({ dataStart, dataEvent, dataSetting }) {
 
             <EventSlider1 events={dataEvent}></EventSlider1>
             <div className="divider h-12"></div>
-
+            <div className="w-full bg-white py-12">
+                <BlogGrid1 data={dataBlog} alle></BlogGrid1>
+            </div>
+            <div className="divider h-12"></div>
             <ImgText1 data={dataStart.textImageBoxes[0]}></ImgText1>
             <div className="divider h-12 sm:h-12"></div>
 
@@ -95,6 +99,13 @@ export async function getStaticProps() {
       }`);
     const dataStart = await resStart[0];
 
+    const resBlog = await client.fetch(`*[_type == "blog"]`);
+    let dataBlog = await resBlog
+        .sort((a, b) => {
+            return b._createdAt.localeCompare(a._createdAt);
+        })
+        .slice(0, 3);
+
     const resEvent = await client.fetch(`*[_type == "event"]`);
     const dataEvent = await resEvent.sort((a, b) => {
         return a.zeit.date.localeCompare(b.zeit.date);
@@ -102,7 +113,7 @@ export async function getStaticProps() {
     return {
         props: {
             dataStart,
-
+            dataBlog,
             dataEvent,
             dataSetting,
         },

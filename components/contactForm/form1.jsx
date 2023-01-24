@@ -38,11 +38,11 @@ const Form1 = (props) => {
         }
     }
     return (
-        <MainContainer width="container sm:pt-16 sm:pt-16 sm:pb-12  relative px-8 sm:px-12 lg:px-32">
+        <MainContainer width="container sm:pt-16 sm:pt-16 sm:pb-12  relative px-8 sm:px-12 xl:px-32">
             <div className="col-span-12 lg:col-span-8 grid grid-cols-12">
                 <form
                     onSubmit={handleSubmit(onSubmitForm)}
-                    className="col-span-12 grid gap-2 grid-cols-12 footer topKontakt sm:gap-8 font-serif"
+                    className="col-span-12 grid gap-2 grid-cols-12 footer topKontakt sm:gap-4 font-serif"
                     action=""
                 >
                     <input
@@ -62,7 +62,7 @@ const Form1 = (props) => {
                         type="email"
                         placeholder="Email"
                     />
-                    {errors.email && <Error klasse="block col-span-12">Bitte geben Sie Ihre Email an</Error>}
+                    {errors.email && <Error klasse="col-span-12 lg:col-span-6">Bitte geben Sie Ihre Email an</Error>}
 
                     <input
                         {...register("phone", { required: true })}
@@ -72,12 +72,14 @@ const Form1 = (props) => {
                         type="text"
                         placeholder="Telefonnummer"
                     />
-                    {errors.phone && <Error klasse="block col-span-12">Bitte geben Sie Ihre Telefonnummer an</Error>}
+                    {errors.phone && (
+                        <Error klasse="col-span-12 lg:col-span-6">Bitte geben Sie Ihre Telefonnummer an</Error>
+                    )}
                     <select
                         {...register("betreff", { required: true })}
                         name="betreff"
                         id="phbetreffone"
-                        className="col-span-12 lg:col-span-6   p-4"
+                        className="col-span-12 lg:col-span-12   p-4"
                         type="text"
                         placeholder="Betreff"
                     >
@@ -129,7 +131,7 @@ const Form1 = (props) => {
                     ) : (
                         <div className="w-full col-span-12">
                             <button
-                                className="group w-full   ease-in-out duration-200 hover:bg-darkGrey cursor-pointer p-4 flex items-center justify-center mt-8 sm:mt-4 mb-12 sm:mb-0 hover:bg-primaryColor hover:text-white border border-primaryColor text-primaryColor"
+                                className="group w-full bg-black text-white  ease-in-out duration-200 hover:bg-darkGrey cursor-pointer p-4 flex items-center justify-center mt-8 sm:mt-4 mb-12 sm:mb-0 hover:bg-primaryColor hover:text-white border border-primaryColor text-primaryColor"
                                 type="submit"
                             >
                                 Absenden

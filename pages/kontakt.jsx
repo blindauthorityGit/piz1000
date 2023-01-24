@@ -15,6 +15,7 @@ import { BasicText2 } from "../components/basicComps";
 import { InfoBox1 } from "../components/infoBoxes";
 import { Info2 } from "../components/Info";
 import { Map1 } from "../components/maps";
+import { Logos1 } from "../components/logos";
 
 export default function Besucher({ dataBesucher, dataEvent, dataSetting, dataInfos }) {
     const [linkList, setLinkList] = useState([
@@ -56,7 +57,8 @@ export default function Besucher({ dataBesucher, dataEvent, dataSetting, dataInf
             <div className="divider h-24"></div>
 
             <EventSlider1 events={dataEvent}></EventSlider1>
-            <div className="divider h-24"></div>
+            <div className="divider h-12 sm:h-12"></div>
+            <Logos1 data={dataSetting.logosPartner}></Logos1>
         </>
     );
 }

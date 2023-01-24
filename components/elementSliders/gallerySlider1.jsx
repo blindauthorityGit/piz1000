@@ -87,7 +87,7 @@ const GallerySlider1 = (props) => {
                         src={activeImg}
                         layout="fill"
                         loading="lazy"
-                        objectFit="cover"
+                        objectFit="contain"
                         alt="hero"
                     />
                 </Modal>

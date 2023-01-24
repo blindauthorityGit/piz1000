@@ -80,7 +80,7 @@ const HeroSlider1 = (props) => {
                             {console.log(
                                 e.links.external === undefined ? e.links.internal.slug.current : e.links.external
                             )}
-                            <div className="textBox z-40 px-16 sm:px-36 lg:px-48 col-span-12 lg:col-span-8 flex flex-col justify-center items-center sm:items-start">
+                            <div className="textBox z-40 px-16 sm:px-36 lg:px-48 col-span-12 lg:col-span-10 xl:col-span-8 flex flex-col justify-center items-center sm:items-start">
                                 <p className="subLine text text-white font-oswald mb-4 text-lg font-semibold tracking-wide text-center sm:text-left">
                                     {e.topline}
                                 </p>
