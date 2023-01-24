@@ -127,8 +127,8 @@ const GallerySlider1 = (props) => {
                     {props.data.map((e, i) => {
                         return (
                             <SwiperSlide key={`galleryKey${i}`} className="">
-                                <div className="cursor-pointer relative overflow-hidden">
-                                    <motion.img
+                                <div className="cursor-pointer relative overflow-hidden h-64">
+                                    {/* <motion.img
                                         whileHover={{
                                             scale: 1.1,
                                             transition: { duration: 0.3 },
@@ -139,7 +139,19 @@ const GallerySlider1 = (props) => {
                                             setActiveImg(urlFor(props.data[i].image).url());
                                             console.log(props.data[i]);
                                         }}
-                                        // alt={e.title}
+                                    /> */}
+                                    <Image
+                                        // {...ImagePropsGallery(i)}
+                                        src={urlFor(e.image).url()}
+                                        layout="fill"
+                                        loading="lazy"
+                                        objectFit="contain"
+                                        alt="hero"
+                                        onClick={(e) => {
+                                            setShowOverlay(true);
+                                            setActiveImg(urlFor(props.data[i].image).url());
+                                            console.log(props.data[i]);
+                                        }}
                                     />
                                 </div>
                             </SwiperSlide>
