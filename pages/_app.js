@@ -21,7 +21,7 @@ function MyApp({ Component, pageProps, dataSetting }) {
                 }}
             ></Menu1>
             <Component {...pageProps} />
-            <div className="w-full bg-white sm:py-12">
+            <div className="w-full bg-white py-6 sm:py-12">
                 <Footer1></Footer1>
             </div>
         </>

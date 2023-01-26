@@ -17,6 +17,7 @@ const Form1 = (props) => {
     } = useForm();
 
     async function onSubmitForm(values) {
+        console.log(values);
         setLoading(true);
         let config = {
             method: "post",
@@ -45,6 +46,16 @@ const Form1 = (props) => {
                     className="col-span-12 grid gap-2 grid-cols-12 footer topKontakt sm:gap-4 font-serif"
                     action=""
                 >
+                    <div className="hidden">
+                        <label htmlFor="firstName">Name</label>
+                        <input
+                            {...register("firstName", { required: false })}
+                            id="firstName"
+                            name="firstName"
+                            type="text"
+                            autoComplete="off"
+                        />
+                    </div>
                     <input
                         {...register("name", { required: true })}
                         id="name"
@@ -83,11 +94,11 @@ const Form1 = (props) => {
                         type="text"
                         placeholder="Betreff"
                     >
-                        <option value="general_inquiry" selected>
+                        <option value="allgemeine Informationen" selected>
                             Allgemeine Informationen
                         </option>
-                        <option value="event_inquiry">Veranstaltungen</option>
-                        <option value="visit_inquiry">Besuch / Führungen</option>
+                        <option value="Veranstaltungen">Veranstaltungen</option>
+                        <option value="Besuch / Fuehrungen">Besuch / Führungen</option>
                     </select>
                     {errors.phone && <Error klasse="block col-span-12">Bitte geben Sie Ihre Telefonnummer an</Error>}
 

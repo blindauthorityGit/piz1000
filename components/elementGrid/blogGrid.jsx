@@ -7,6 +7,8 @@ import { motion } from "framer-motion";
 
 import { PortableText } from "@portabletext/react";
 
+import BlogTextShorter from "../utils/blogTextShorter";
+
 //ImageBuilder
 import myConfiguredSanityClient from "../../client";
 
@@ -64,16 +66,7 @@ const BlogGrid1 = (props) => {
                             >
                                 <Link href={`/blog/${e.slug.current}`}>
                                     <div className="cursor-pointer relative h-full overflow-hidden">
-                                        {/* <motion.img
-                                            whileHover={{
-                                                scale: 1.1,
-                                                transition: { duration: 0.3 },
-                                            }}
-                                            src={urlFor(e.mainImage).width(300).height(200)}
-                                            alt={e.title}
-                                        /> */}
                                         <Image
-                                            // {...ImagePropsGallery(i)}
                                             src={urlFor(e.mainImage).url()}
                                             layout="fill"
                                             loading="lazy"
@@ -88,7 +81,9 @@ const BlogGrid1 = (props) => {
                                 <h2 className="font-oswald font-semibold text-2xl mt-2 mb-4">{e.title}</h2>
                                 <div>
                                     {" "}
-                                    <PortableText value={e.exzerpt} />
+                                    {console.log(e.text)}
+                                    <BlogTextShorter blocks={e.text}></BlogTextShorter>
+                                    {/* <PortableText value={e.exzerpt} /> */}
                                 </div>
 
                                 <Link href={`/blog/${e.slug.current}`}>

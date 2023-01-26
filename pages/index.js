@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useLayoutEffect, useState, useRef } from "react";
 
 import Head from "next/head";
 import client from "../client";
@@ -7,8 +7,11 @@ import { HeroSlider1 } from "../components/HeroSlider";
 import { EventSlider1 } from "../components/elementSliders";
 import { BlogGrid1 } from "../components/elementGrid";
 import { ImgText1 } from "../components/imgText";
-import { Stoerer1 } from "../components/stoerer";
+import { Stoerer1, StoererLine } from "../components/stoerer";
 import { Logos1 } from "../components/logos";
+
+// assets
+import Siegel from "../assets/siegelBG2.svg";
 
 //ImageBuilder
 import myConfiguredSanityClient from "../client";
@@ -22,8 +25,13 @@ function urlFor(source) {
 }
 
 export default function Home({ dataStart, dataEvent, dataBlog, dataSetting }) {
+    const [siegelWidth, setSiegelWidth] = useState(0);
+    const siegelRef = useRef();
+
     useEffect(() => {
-        console.log(dataBlog);
+        setTimeout(() => {
+            setSiegelWidth(siegelRef.current.clientWidth);
+        }, 0);
     }, []);
 
     return (
@@ -59,8 +67,17 @@ export default function Home({ dataStart, dataEvent, dataBlog, dataSetting }) {
                 <BlogGrid1 data={dataBlog} alle></BlogGrid1>
             </div>
             <div className="divider h-12"></div>
-            <ImgText1 data={dataStart.textImageBoxes[0]}></ImgText1>
+            <ImgText1 data={dataStart.textImageBoxes[0]}>
+                <div
+                    ref={siegelRef}
+                    // style={{ left: `-${siegelWidth / 2}px` }}
+                    className={`absolute right-[16px]`}
+                >
+                    <img src={Siegel.src}></img>
+                </div>
+            </ImgText1>
             <div className="divider h-12 sm:h-12"></div>
+            {/* <StoererLine></StoererLine> */}
 
             <div className="w-full bg-white py-12">
                 <ImgText1 data={dataStart.textImageBoxes[1]} order></ImgText1>

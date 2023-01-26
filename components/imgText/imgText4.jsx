@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import Link from "next/link";
-import { config } from "./config";
-import { BiChevronDown } from "react-icons/bi";
-import { motion } from "framer-motion";
+
 import Image from "next/image";
-import parse from "html-react-parser";
 import { PortableText } from "@portabletext/react";
 
+import Siegel from "../../assets/siegelBG.svg";
 //ImageBuilder
 import myConfiguredSanityClient from "../../client";
 
@@ -22,7 +20,7 @@ const TextImg4 = (props) => {
     return (
         <div className={`w-full container  sm:px-24 m-auto lg:gap-16 grid grid-cols-12  ${props.colspan}`}>
             <div
-                className={`left col-span-12 lg:col-span-8 relative  ${
+                className={`left col-span-12 lg:col-span-8 relative   ${
                     props.data.order ? "lg:order-last" : "lg:order-first"
                 }`}
             >
@@ -57,6 +55,9 @@ const TextImg4 = (props) => {
                         </button>
                     </Link>
                 ) : null}
+                <div className="mt-8">
+                    <img src={Siegel.src} alt="Gütesiegel Museum" />
+                </div>
             </div>
 
             <style jsx>{`

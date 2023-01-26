@@ -11,7 +11,7 @@ import { HeroSlider1 } from "../components/HeroSlider";
 import { EventSlider1 } from "../components/elementSliders";
 import { ImgText1, ImgText4 } from "../components/imgText";
 import { InfoBox1 } from "../components/infoBoxes";
-import { Stoerer1 } from "../components/stoerer";
+import Favicon from "../assets/favicon.svg";
 
 //ImageBuilder
 import myConfiguredSanityClient from "../client";
@@ -49,7 +49,7 @@ export default function About({ dataAbout, dataEvent, dataSetting, dataInfos }) 
                     content={dataAbout.seo.mainSEO.keywords && dataAbout.seo.mainSEO.keywords.map((e) => e)}
                 />
                 <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-                {/* <link rel="icon" href={urlFor(dataSetting.favicon)} /> */}
+                <link rel="icon" href={urlFor(dataSetting.favicon)} />
                 <meta property="og:type" content="website" />
                 <meta property="og:url" content="https://www.piz1000.at" />
                 <meta

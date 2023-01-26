@@ -34,6 +34,7 @@ const TextImg1 = (props) => {
                     objectFit="cover"
                     alt="hero"
                 />
+                {props.children}
             </div>
             <div className="right px-8 sm:px-0 col-span-12 lg:col-span-6 flex flex-col justify-center ">
                 <p className="font-serif uppercase mt-4 lg:mt-0 text-base lg:text-lg mb-4">{props.data.topTitle}</p>
