@@ -40,12 +40,12 @@ const Event = ({ post, dataAll }) => {
     useEffect(() => {
         console.log(
             post,
-            post.seo,
-            urlFor(
-                post.seo && post.seo.advancedSEO && post.seo.advancedSEO.ogImage
-                    ? urlFor(post.seo.advancedSEO.ogImage)
-                    : null
-            )
+            post.seo
+            // urlFor(
+            //     post.seo && post.seo.advancedSEO && post.seo.advancedSEO.ogImage
+            //         ? urlFor(post.seo.advancedSEO.ogImage)
+            //         : null
+            // )
         );
         setUrl(window.location.href);
 
