@@ -38,7 +38,7 @@ const Event = ({ post, dataAll }) => {
     ]);
 
     useEffect(() => {
-        console.log(post, dataAll);
+        console.log(post, post.seo);
         setUrl(window.location.href);
 
         setLinkList((prev) => [...prev, { title: post.title, link: post.slug.current }]);
