@@ -12,6 +12,8 @@ import { EventSlider1 } from "../../components/elementSliders";
 import SocialShare from "../../components/utils/socialShare";
 import Favicon from "../../assets/favicon.svg";
 
+import Logo from "../../assets/logo.svg";
+
 //ImageBuilder
 import myConfiguredSanityClient from "../../client";
 
@@ -40,7 +42,7 @@ const Event = ({ post, dataAll }) => {
     useEffect(() => {
         console.log(
             post,
-            post.seo
+            dataAll
             // urlFor(
             //     post.seo && post.seo.advancedSEO && post.seo.advancedSEO.ogImage
             //         ? urlFor(post.seo.advancedSEO.ogImage)
@@ -95,7 +97,7 @@ const Event = ({ post, dataAll }) => {
                 <meta property="og:site_name" content="PIZ 1000 - Pittner Regionalmuseum" />
                 <meta property="og:locale" content="de_DE" />
             </Head> */}
-            <Hero1 height="h-[200px] sm:h-[480px]" bgImage={post && post.mainImage ? post.mainImage : ""}></Hero1>{" "}
+            <Hero1 height="h-[200px] sm:h-[480px]" bgImage={post && post.mainImage ? post.mainImage : Logo}></Hero1>{" "}
             <Breadcrumbs links={linkList}></Breadcrumbs>
             <ImgText3 data={post}>
                 <Info1 data={post} bg="bg-[#F9F9F9]"></Info1>
@@ -132,7 +134,7 @@ export const getStaticPaths = async () => {
     });
     return {
         paths,
-        fallback: true,
+        fallback: false,
         // fallback: process.env.NEXT_DEV === "true" ? false : true,
     };
 };
