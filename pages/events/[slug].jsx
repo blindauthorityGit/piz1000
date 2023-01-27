@@ -97,7 +97,10 @@ const Event = ({ post, dataAll }) => {
                 <meta property="og:site_name" content="PIZ 1000 - Pittner Regionalmuseum" />
                 <meta property="og:locale" content="de_DE" />
             </Head> */}
-            <Hero1 height="h-[200px] sm:h-[480px]" bgImage={post && post.mainImage ? post.mainImage : Logo}></Hero1>{" "}
+
+            {post?.mainImage && (
+                <Hero1 height="h-[200px] sm:h-[480px]" bgImage={post && post.mainImage ? post.mainImage : Logo}></Hero1>
+            )}
             <Breadcrumbs links={linkList}></Breadcrumbs>
             <ImgText3 data={post}>
                 <Info1 data={post} bg="bg-[#F9F9F9]"></Info1>
@@ -134,7 +137,7 @@ export const getStaticPaths = async () => {
     });
     return {
         paths,
-        fallback: false,
+        fallback: true,
         // fallback: process.env.NEXT_DEV === "true" ? false : true,
     };
 };
