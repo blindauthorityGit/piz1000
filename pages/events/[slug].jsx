@@ -100,7 +100,7 @@ const Event = ({ post, dataAll }) => {
             <ImgText3 data={post}>
                 <Info1 data={post} bg="bg-[#F9F9F9]"></Info1>
             </ImgText3>
-            {post.gallery ? <GallerySlider1 data={post.gallery}></GallerySlider1> : null}
+            {post.gallery ? <GallerySlider1 data={post?.gallery ? post.gallery : null}></GallerySlider1> : null}
             <div className="divider h-12"></div>
             <SocialShare
                 url={url}
