@@ -107,7 +107,9 @@ const Event = ({ post, dataAll }) => {
                 title={
                     post?.seo && post.seo.advancedSEO && post.seo.advancedSEO.ogDescription
                         ? post.seo.advancedSEO.ogDescription
-                        : post.title
+                        : post?.title
+                        ? post.title
+                        : ""
                 }
             />
             <div className="divider h-12 sm:h-24"></div>
