@@ -133,8 +133,8 @@ export const getStaticPaths = async () => {
     });
     return {
         paths,
-        // fallback: false,
-        fallback: process.env.NEXT_DEV === "true" ? false : true,
+        fallback: true,
+        // fallback: process.env.NEXT_DEV === "true" ? false : true,
     };
 };
 
