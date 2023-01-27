@@ -105,7 +105,7 @@ const Event = ({ post, dataAll }) => {
             <SocialShare
                 url={url}
                 title={
-                    post.seo && post.seo.advancedSEO && post.seo.advancedSEO.ogDescription
+                    post?.seo && post.seo.advancedSEO && post.seo.advancedSEO.ogDescription
                         ? post.seo.advancedSEO.ogDescription
                         : post.title
                 }
