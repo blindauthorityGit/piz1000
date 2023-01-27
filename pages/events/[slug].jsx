@@ -12,6 +12,17 @@ import { EventSlider1 } from "../../components/elementSliders";
 import SocialShare from "../../components/utils/socialShare";
 import Favicon from "../../assets/favicon.svg";
 
+//ImageBuilder
+import myConfiguredSanityClient from "../../client";
+
+import imageUrlBuilder from "@sanity/image-url";
+
+const builder = imageUrlBuilder(myConfiguredSanityClient);
+
+function urlFor(source) {
+    return builder.image(source);
+}
+
 const Event = ({ post, dataAll }) => {
     const [url, setUrl] = useState("");
 
@@ -109,7 +120,7 @@ export const getStaticPaths = async () => {
     });
     return {
         paths,
-        fallback: false,
+        fallback: process.env.NEXT_DEV === "true" ? false : true,
     };
 };
 
