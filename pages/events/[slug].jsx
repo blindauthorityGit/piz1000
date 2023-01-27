@@ -54,7 +54,7 @@ const Event = ({ post, dataAll }) => {
 
     return (
         <>
-            <Head>
+            {/* <Head>
                 <title>{post?.seo?.mainSEO?.title ? post.seo.mainSEO.title : "PIZ 1000"}</title>
                 <meta
                     name="description"
@@ -94,7 +94,7 @@ const Event = ({ post, dataAll }) => {
                 />
                 <meta property="og:site_name" content="PIZ 1000 - Pittner Regionalmuseum" />
                 <meta property="og:locale" content="de_DE" />
-            </Head>
+            </Head> */}
             <Hero1 height="h-[200px] sm:h-[480px]" bgImage={post.mainImage}></Hero1>
             <Breadcrumbs links={linkList}></Breadcrumbs>
             <ImgText3 data={post}>
