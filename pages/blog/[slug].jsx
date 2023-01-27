@@ -43,7 +43,7 @@ const Blog = ({ post, dataAll }) => {
 
     return (
         <>
-            <Head>
+            {/* <Head>
                 <title>{post?.seo?.mainSEO?.title ? post.seo.mainSEO.title : "PIZ 1000"}</title>
                 <meta
                     name="description"
@@ -83,11 +83,11 @@ const Blog = ({ post, dataAll }) => {
                 />
                 <meta property="og:site_name" content="PIZ 1000 - Pittner Regionalmuseum" />
                 <meta property="og:locale" content="de_DE" />
-            </Head>
-            <Hero1 height="h-[480px]" bgImage={post.mainImage}></Hero1>
+            </Head> */}
+            <Hero1 height="h-[480px]" bgImage={post?.mainImage ? post.mainImage : null}></Hero1>
             <Breadcrumbs links={linkList}></Breadcrumbs>
             <ImgText5 data={post}></ImgText5>
-            {post.gallery ? <GallerySlider1 data={post.gallery}></GallerySlider1> : null}
+            {post?.gallery ? post.gallery ? <GallerySlider1 data={post.gallery}></GallerySlider1> : null : null}
 
             <div className="divider h-12"></div>
             <SocialShare
@@ -95,7 +95,9 @@ const Blog = ({ post, dataAll }) => {
                 title={
                     post.seo && post.seo.advancedSEO && post.seo.advancedSEO.ogDescription
                         ? post.seo.advancedSEO.ogDescription
-                        : post.title
+                        : post?.title
+                        ? post.title
+                        : "PIZ 1000"
                 }
             />
 
