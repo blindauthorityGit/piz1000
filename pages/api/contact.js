@@ -1,8 +1,4 @@
-// import nodemailer from "nodemailer";
 const nodemailer = require("nodemailer");
-
-// const path = require("path");
-// const fs = require("fs");
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default async (req, res) => {
@@ -18,31 +14,6 @@ export default async (req, res) => {
         },
     });
 
-    // await new Promise((resolve, reject) => {
-    //     // verify connection configuration
-    //     transporter.verify(function (error, success) {
-    //         if (error) {
-    //             console.log("SAUBEDA", error);
-    //             reject(error);
-    //         } else {
-    //             console.log("Server is ready to take our messages");
-    //             resolve(success);
-    //         }
-    //     });
-    // });
-
-    // const filePath = path.join(__dirname, "../../../../components/form/html/template.html");
-    // const source = fs.readFileSync(filePath, "utf-8").toString();
-    // const template = handlebars.compile(source);
-    // const replacements = {
-    //     name: name,
-    //     email: email,
-    //     phone: phone,
-    //     message: message,
-    // };
-    // const htmlToSend = template(replacements);
-
-    // await new Promise((resolve, reject) => {
     if (!firstName) {
         try {
             const emailRes = transporter.sendMail({
@@ -55,7 +26,7 @@ export default async (req, res) => {
                 html: `<p><strong>Name:</strong> ${name}</p> <p><strong>Email:</strong> ${email}</p> <p><strong>Telefon:</strong> ${phone}</p> <p><strong>Nachricht:</strong> ${message}</p>`,
             });
 
-            console.log("Message Sent", emailRes.messageId, process.env.NEXT_DEV);
+            console.log("Message Sent", process.env.NEXT_USER);
             res.status(200).json(req.body);
         } catch (err) {
             console.log("GEHT NET", err);
