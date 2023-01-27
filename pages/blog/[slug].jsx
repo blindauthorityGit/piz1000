@@ -44,8 +44,11 @@ const Blog = ({ post, dataAll }) => {
     return (
         <>
             <Head>
-                <title>{post.seo.mainSEO.title}</title>
-                <meta name="description" content={post.seo.mainSEO.description} />
+                <title>{post?.seo?.mainSEO?.title ? post.seo.mainSEO.title : "PIZ 1000"}</title>
+                <meta
+                    name="description"
+                    content={post?.seo?.mainSEO?.description ? post.seo.mainSEO.description : ""}
+                />{" "}
                 <meta
                     name="keywords"
                     content={post?.seo?.mainSEO?.keywords ? post.seo.mainSEO.keywords.map((e) => e) : ""}
@@ -54,6 +57,14 @@ const Blog = ({ post, dataAll }) => {
                 <link rel="icon" href={Favicon.src} />
                 <meta property="og:type" content="website" />
                 <meta property="og:url" content={url} />
+                <meta
+                    property="og:title"
+                    content={
+                        post.seo && post.seo.advancedSEO && post.seo.advancedSEO.ogTitle
+                            ? post.seo.advancedSEO.ogTitle
+                            : post.seo.mainSEO.title
+                    }
+                />
                 <meta
                     property="og:image"
                     content={

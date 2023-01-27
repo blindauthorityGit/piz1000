@@ -47,7 +47,7 @@ const Event = ({ post, dataAll }) => {
     return (
         <>
             <Head>
-                <title>{post.seo.mainSEO.title}</title>
+                <title>{post?.seo?.mainSEO?.title ? post.seo.mainSEO.title : "PIZ 1000"}</title>
                 <meta
                     name="description"
                     content={post?.seo?.mainSEO?.description ? post.seo.mainSEO.description : ""}
