@@ -56,49 +56,49 @@ const Event = ({ post, dataAll }) => {
 
     return (
         <>
-            {/* <Head>
-                <title>{post?.seo?.mainSEO?.title ? post.seo.mainSEO.title : "PIZ 1000"}</title>
-                <meta
-                    name="description"
-                    content={post?.seo?.mainSEO?.description ? post.seo.mainSEO.description : ""}
-                />
-                <meta
-                    name="keywords"
-                    content={post?.seo?.mainSEO?.keywords ? post.seo.mainSEO.keywords.map((e) => e) : ""}
-                />
-                <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-                <link rel="icon" href={Favicon.src} />
-                <meta property="og:type" content="website" />
-                <meta property="og:url" content={url} />
-                <meta
-                    property="og:title"
-                    content={
-                        post.seo && post.seo.advancedSEO && post.seo.advancedSEO.ogTitle
-                            ? post.seo.advancedSEO.ogTitle
-                            : post.seo.mainSEO.title
-                    }
-                />
-                <meta
-                    property="og:image"
-                    content={
-                        post.seo && post.seo.advancedSEO && post.seo.advancedSEO.ogImage
-                            ? urlFor(post.seo.advancedSEO.ogImage)
-                            : null
-                    }
-                />
-                <meta
-                    property="og:description"
-                    content={
-                        post.seo && post.seo.advancedSEO && post.seo.advancedSEO.ogDescription
-                            ? post.seo.advancedSEO.ogDescription
-                            : null
-                    }
-                />
-                <meta property="og:site_name" content="PIZ 1000 - Pittner Regionalmuseum" />
-                <meta property="og:locale" content="de_DE" />
-            </Head> */}
             {post && dataAll ? (
                 <>
+                    <Head>
+                        <title>{post?.seo?.mainSEO?.title ? post.seo.mainSEO.title : "PIZ 1000"}</title>
+                        <meta
+                            name="description"
+                            content={post?.seo?.mainSEO?.description ? post.seo.mainSEO.description : ""}
+                        />
+                        <meta
+                            name="keywords"
+                            content={post?.seo?.mainSEO?.keywords ? post.seo.mainSEO.keywords.map((e) => e) : ""}
+                        />
+                        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+                        <link rel="icon" href={Favicon.src} />
+                        <meta property="og:type" content="website" />
+                        <meta property="og:url" content={url} />
+                        <meta
+                            property="og:title"
+                            content={
+                                post.seo && post.seo.advancedSEO && post.seo.advancedSEO.ogTitle
+                                    ? post.seo.advancedSEO.ogTitle
+                                    : post.seo.mainSEO.title
+                            }
+                        />
+                        <meta
+                            property="og:image"
+                            content={
+                                post.seo && post.seo.advancedSEO && post.seo.advancedSEO.ogImage
+                                    ? urlFor(post.seo.advancedSEO.ogImage)
+                                    : null
+                            }
+                        />
+                        <meta
+                            property="og:description"
+                            content={
+                                post.seo && post.seo.advancedSEO && post.seo.advancedSEO.ogDescription
+                                    ? post.seo.advancedSEO.ogDescription
+                                    : null
+                            }
+                        />
+                        <meta property="og:site_name" content="PIZ 1000 - Pittner Regionalmuseum" />
+                        <meta property="og:locale" content="de_DE" />
+                    </Head>
                     <Hero1
                         height="h-[200px] sm:h-[480px]"
                         bgImage={post && post.mainImage ? post.mainImage : Logo}
