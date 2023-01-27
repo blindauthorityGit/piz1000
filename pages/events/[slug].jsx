@@ -97,29 +97,37 @@ const Event = ({ post, dataAll }) => {
                 <meta property="og:site_name" content="PIZ 1000 - Pittner Regionalmuseum" />
                 <meta property="og:locale" content="de_DE" />
             </Head> */}
-
-            {post?.mainImage && (
-                <Hero1 height="h-[200px] sm:h-[480px]" bgImage={post && post.mainImage ? post.mainImage : Logo}></Hero1>
+            {post && dataAll ? (
+                <>
+                    <Hero1
+                        height="h-[200px] sm:h-[480px]"
+                        bgImage={post && post.mainImage ? post.mainImage : Logo}
+                    ></Hero1>
+                    <Breadcrumbs links={linkList}></Breadcrumbs>
+                    <ImgText3 data={post}>
+                        <Info1 data={post} bg="bg-[#F9F9F9]"></Info1>
+                    </ImgText3>
+                    {post?.gallery ? (
+                        <GallerySlider1 data={post?.gallery ? post.gallery : null}></GallerySlider1>
+                    ) : null}
+                    <div className="divider h-12"></div>
+                    <SocialShare
+                        url={url}
+                        title={
+                            post?.seo && post.seo.advancedSEO && post.seo.advancedSEO.ogDescription
+                                ? post.seo.advancedSEO.ogDescription
+                                : post?.title
+                                ? post.title
+                                : ""
+                        }
+                    />
+                    <div className="divider h-12 sm:h-24"></div>
+                    <EventSlider1 nonstart events={dataAll}></EventSlider1>
+                    <div className="divider h-12 sm:h-24"></div>
+                </>
+            ) : (
+                "LOADING"
             )}
-            <Breadcrumbs links={linkList}></Breadcrumbs>
-            <ImgText3 data={post}>
-                <Info1 data={post} bg="bg-[#F9F9F9]"></Info1>
-            </ImgText3>
-            {post?.gallery ? <GallerySlider1 data={post?.gallery ? post.gallery : null}></GallerySlider1> : null}
-            <div className="divider h-12"></div>
-            <SocialShare
-                url={url}
-                title={
-                    post?.seo && post.seo.advancedSEO && post.seo.advancedSEO.ogDescription
-                        ? post.seo.advancedSEO.ogDescription
-                        : post?.title
-                        ? post.title
-                        : ""
-                }
-            />
-            <div className="divider h-12 sm:h-24"></div>
-            <EventSlider1 nonstart events={dataAll}></EventSlider1>
-            <div className="divider h-12 sm:h-24"></div>
         </>
     );
 };
