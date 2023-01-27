@@ -57,8 +57,9 @@ export default function Home({ dataStart, dataEvent, dataBlog, dataSetting }) {
                 <meta property="og:site_name" content="PIZ 1000 - Pittner Regionalmuseum" />
                 <meta property="og:locale" content="de_DE" />
             </Head>
-
-            <HeroSlider1 slides={dataStart.mainSliders}></HeroSlider1>
+            <div className="w-full bg-white">
+                <HeroSlider1 slides={dataStart.mainSliders}></HeroSlider1>
+            </div>
             <div className="divider h-8"></div>
 
             <EventSlider1 events={dataEvent}></EventSlider1>

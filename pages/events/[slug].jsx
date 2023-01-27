@@ -27,7 +27,7 @@ const Event = ({ post, dataAll }) => {
     ]);
 
     useEffect(() => {
-        console.log(post.gallery, dataAll);
+        console.log(post, dataAll);
         setUrl(window.location.href);
 
         setLinkList((prev) => [...prev, { title: post.title, link: post.slug.current }]);
@@ -46,6 +46,14 @@ const Event = ({ post, dataAll }) => {
                 <link rel="icon" href={Favicon.src} />
                 <meta property="og:type" content="website" />
                 <meta property="og:url" content={url} />
+                <meta
+                    property="og:title"
+                    content={
+                        post.seo && post.seo.advancedSEO && post.seo.advancedSEO.ogTitle
+                            ? post.seo.advancedSEO.ogTitle
+                            : post.seo.mainSEO.title
+                    }
+                />
                 <meta
                     property="og:image"
                     content={
