@@ -43,66 +43,72 @@ const Blog = ({ post, dataAll }) => {
 
     return (
         <>
-            {/* <Head>
-                <title>{post?.seo?.mainSEO?.title ? post.seo.mainSEO.title : "PIZ 1000"}</title>
-                <meta
-                    name="description"
-                    content={post?.seo?.mainSEO?.description ? post.seo.mainSEO.description : ""}
-                />{" "}
-                <meta
-                    name="keywords"
-                    content={post?.seo?.mainSEO?.keywords ? post.seo.mainSEO.keywords.map((e) => e) : ""}
-                />
-                <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-                <link rel="icon" href={Favicon.src} />
-                <meta property="og:type" content="website" />
-                <meta property="og:url" content={url} />
-                <meta
-                    property="og:title"
-                    content={
-                        post.seo && post.seo.advancedSEO && post.seo.advancedSEO.ogTitle
-                            ? post.seo.advancedSEO.ogTitle
-                            : post.seo.mainSEO.title
-                    }
-                />
-                <meta
-                    property="og:image"
-                    content={
-                        post.seo && post.seo.advancedSEO && post.seo.advancedSEO.ogImage
-                            ? urlFor(post.seo.advancedSEO.ogImage)
-                            : null
-                    }
-                />
-                <meta
-                    property="og:description"
-                    content={
-                        post.seo && post.seo.advancedSEO && post.seo.advancedSEO.ogDescription
-                            ? post.seo.advancedSEO.ogDescription
-                            : null
-                    }
-                />
-                <meta property="og:site_name" content="PIZ 1000 - Pittner Regionalmuseum" />
-                <meta property="og:locale" content="de_DE" />
-            </Head> */}
-            <Hero1 height="h-[480px]" bgImage={post?.mainImage ? post.mainImage : ""}></Hero1>
-            <Breadcrumbs links={linkList}></Breadcrumbs>
-            <ImgText5 data={post}></ImgText5>
-            {post?.gallery ? post.gallery ? <GallerySlider1 data={post.gallery}></GallerySlider1> : null : null}
+            {post && dataAll ? (
+                <>
+                    <Head>
+                        <title>{post?.seo?.mainSEO?.title ? post.seo.mainSEO.title : "PIZ 1000"}</title>
+                        <meta
+                            name="description"
+                            content={post?.seo?.mainSEO?.description ? post.seo.mainSEO.description : ""}
+                        />{" "}
+                        <meta
+                            name="keywords"
+                            content={post?.seo?.mainSEO?.keywords ? post.seo.mainSEO.keywords.map((e) => e) : ""}
+                        />
+                        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+                        <link rel="icon" href={Favicon.src} />
+                        <meta property="og:type" content="website" />
+                        <meta property="og:url" content={url} />
+                        <meta
+                            property="og:title"
+                            content={
+                                post.seo && post.seo.advancedSEO && post.seo.advancedSEO.ogTitle
+                                    ? post.seo.advancedSEO.ogTitle
+                                    : post.seo.mainSEO.title
+                            }
+                        />
+                        <meta
+                            property="og:image"
+                            content={
+                                post.seo && post.seo.advancedSEO && post.seo.advancedSEO.ogImage
+                                    ? urlFor(post.seo.advancedSEO.ogImage)
+                                    : null
+                            }
+                        />
+                        <meta
+                            property="og:description"
+                            content={
+                                post.seo && post.seo.advancedSEO && post.seo.advancedSEO.ogDescription
+                                    ? post.seo.advancedSEO.ogDescription
+                                    : null
+                            }
+                        />
+                        <meta property="og:site_name" content="PIZ 1000 - Pittner Regionalmuseum" />
+                        <meta property="og:locale" content="de_DE" />
+                    </Head>
+                    <Hero1 height="h-[480px]" bgImage={post?.mainImage ? post.mainImage : ""}></Hero1>
+                    <Breadcrumbs links={linkList}></Breadcrumbs>
+                    <ImgText5 data={post}></ImgText5>
+                    {post?.gallery ? post.gallery ? <GallerySlider1 data={post.gallery}></GallerySlider1> : null : null}
 
-            <div className="divider h-12"></div>
-            <SocialShare
-                url={url}
-                title={
-                    post.seo && post.seo.advancedSEO && post.seo.advancedSEO.ogDescription
-                        ? post.seo.advancedSEO.ogDescription
-                        : post?.title
-                        ? post.title
-                        : "PIZ 1000"
-                }
-            />
+                    <div className="divider h-12"></div>
+                    <SocialShare
+                        url={url}
+                        title={
+                            post.seo && post.seo.advancedSEO && post.seo.advancedSEO.ogDescription
+                                ? post.seo.advancedSEO.ogDescription
+                                : post?.title
+                                ? post.title
+                                : "PIZ 1000"
+                        }
+                    />
 
-            {/* <EventSlider1 nonstart events={dataAll}></EventSlider1> */}
-            <div className="divider h-24"></div>
+                    {/* <EventSlider1 nonstart events={dataAll}></EventSlider1> */}
+                    <div className="divider h-24"></div>
+                </>
+            ) : (
+                "LOADING"
+            )}
         </>
     );
 };
