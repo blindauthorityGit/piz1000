@@ -38,7 +38,15 @@ const Event = ({ post, dataAll }) => {
     ]);
 
     useEffect(() => {
-        console.log(post, post.seo);
+        console.log(
+            post,
+            post.seo,
+            urlFor(
+                post.seo && post.seo.advancedSEO && post.seo.advancedSEO.ogImage
+                    ? urlFor(post.seo.advancedSEO.ogImage)
+                    : null
+            )
+        );
         setUrl(window.location.href);
 
         setLinkList((prev) => [...prev, { title: post.title, link: post.slug.current }]);
@@ -123,8 +131,8 @@ export const getStaticPaths = async () => {
     });
     return {
         paths,
-        fallback: false,
-        // fallback: process.env.NEXT_DEV === "true" ? false : true,
+        // fallback: false,
+        fallback: process.env.NEXT_DEV === "true" ? false : true,
     };
 };
 
