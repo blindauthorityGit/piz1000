@@ -95,7 +95,7 @@ const Event = ({ post, dataAll }) => {
                 <meta property="og:site_name" content="PIZ 1000 - Pittner Regionalmuseum" />
                 <meta property="og:locale" content="de_DE" />
             </Head> */}
-            <Hero1 height="h-[200px] sm:h-[480px]" bgImage={post?.mainImage ? post.mainImage : ""}></Hero1>
+            <Hero1 height="h-[200px] sm:h-[480px]" bgImage={post?.mainImage}></Hero1>
             <Breadcrumbs links={linkList}></Breadcrumbs>
             <ImgText3 data={post}>
                 <Info1 data={post} bg="bg-[#F9F9F9]"></Info1>
