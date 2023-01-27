@@ -84,7 +84,7 @@ const Blog = ({ post, dataAll }) => {
                 <meta property="og:site_name" content="PIZ 1000 - Pittner Regionalmuseum" />
                 <meta property="og:locale" content="de_DE" />
             </Head> */}
-            <Hero1 height="h-[480px]" bgImage={post?.mainImage ? post.mainImage : null}></Hero1>
+            <Hero1 height="h-[480px]" bgImage={post?.mainImage ? post.mainImage : ""}></Hero1>
             <Breadcrumbs links={linkList}></Breadcrumbs>
             <ImgText5 data={post}></ImgText5>
             {post?.gallery ? post.gallery ? <GallerySlider1 data={post.gallery}></GallerySlider1> : null : null}
