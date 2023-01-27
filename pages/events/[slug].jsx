@@ -48,7 +48,10 @@ const Event = ({ post, dataAll }) => {
         <>
             <Head>
                 <title>{post.seo.mainSEO.title}</title>
-                <meta name="description" content={post.seo.mainSEO.description} />
+                <meta
+                    name="description"
+                    content={post?.seo?.mainSEO?.description ? post.seo.mainSEO.description : ""}
+                />
                 <meta
                     name="keywords"
                     content={post?.seo?.mainSEO?.keywords ? post.seo.mainSEO.keywords.map((e) => e) : ""}
