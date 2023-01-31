@@ -17,7 +17,7 @@ function urlFor(source) {
     return builder.image(source);
 }
 
-const Events = ({ dataAll }) => {
+const Events = ({ dataAll, dataSetting }) => {
     const [linkList, setLinkList] = useState([
         {
             title: "Home",
@@ -70,6 +70,9 @@ export const getStaticProps = async (context) => {
     const dataAll = await resAll.sort((a, b) => {
         return a.zeit.date.localeCompare(b.zeit.date);
     });
+
+    const resSetting = await client.fetch(`*[_type == "settings"]`);
+    const dataSetting = await resSetting[0];
     // const dataAll = await resAll.sort((a, b) =>
     //     a._createdAt < b._createdAt ? -1 : a._createdAt > b._createdAt ? 1 : 0
     // );
@@ -77,6 +80,7 @@ export const getStaticProps = async (context) => {
     return {
         props: {
             dataAll,
+            dataSetting,
         },
     };
 };
