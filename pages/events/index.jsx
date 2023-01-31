@@ -47,14 +47,14 @@ const Events = ({ dataAll, dataSetting }) => {
                 <link rel="icon" href={Favicon.src} />
                 <meta property="og:type" content="website" />
                 <meta property="og:url" content="https://www.piz1000.at" />
-                <meta
+                {/* <meta
                     property="og:image"
                     content={dataAbout.seo.advancedSEO.ogImage ? urlFor(dataSetting.seo.advancedSEO.ogImage) : null}
                 />
                 <meta
                     property="og:description"
                     content={dataAbout.seo.advancedSEO.ogDescription ? dataAbout.seo.advancedSEO.ogDescription : null}
-                />
+                /> */}
                 <meta property="og:site_name" content="PIZ 1000 - Pittner Regionalmuseum" />
                 <meta property="og:locale" content="de_DE" />
             </Head>
