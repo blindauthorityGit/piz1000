@@ -10,6 +10,10 @@ import { ImgText1 } from "../components/imgText";
 import { Stoerer1, StoererLine } from "../components/stoerer";
 import { Logos1 } from "../components/logos";
 
+// AOS
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 // assets
 import Siegel from "../assets/siegelBG2.svg";
 
@@ -32,6 +36,9 @@ export default function Home({ dataStart, dataEvent, dataBlog, dataSetting }) {
         setTimeout(() => {
             setSiegelWidth(siegelRef.current.clientWidth);
         }, 0);
+        AOS.init({
+            duration: 1200,
+        });
     }, []);
 
     return (
@@ -57,38 +64,43 @@ export default function Home({ dataStart, dataEvent, dataBlog, dataSetting }) {
                 <meta property="og:site_name" content="PIZ 1000 - Pittner Regionalmuseum" />
                 <meta property="og:locale" content="de_DE" />
             </Head>
-            <div className="w-full bg-white">
+            <div data-aos="fade-right" className="w-full bg-white">
                 <HeroSlider1 slides={dataStart.mainSliders}></HeroSlider1>
             </div>
             <div className="divider h-8"></div>
 
             <EventSlider1 events={dataEvent}></EventSlider1>
             <div className="divider h-6"></div>
-            <div className="w-full bg-white py-6">
+            <div data-aos="fade-up" className="w-full bg-white py-6">
                 <BlogGrid1 data={dataBlog} alle></BlogGrid1>
             </div>
             <div className="divider h-12"></div>
-            <ImgText1 data={dataStart.textImageBoxes[0]}>
-                <div
-                    ref={siegelRef}
-                    // style={{ left: `-${siegelWidth / 2}px` }}
-                    className={`absolute right-[16px]`}
-                >
-                    <img src={Siegel.src}></img>
-                </div>
-            </ImgText1>
-            <div className="divider h-12 sm:h-12"></div>
-            {/* <StoererLine></StoererLine> */}
-
-            <div className="w-full bg-white py-12">
-                <ImgText1 data={dataStart.textImageBoxes[1]} order></ImgText1>
+            <div data-aos="fade-up">
+                <ImgText1 data={dataStart.textImageBoxes[0]}>
+                    <div
+                        ref={siegelRef}
+                        // style={{ left: `-${siegelWidth / 2}px` }}
+                        className={`absolute right-[16px]`}
+                    >
+                        <img src={Siegel.src}></img>
+                    </div>
+                </ImgText1>
             </div>
             <div className="divider h-12 sm:h-12"></div>
-
-            <ImgText1 data={dataStart.textImageBoxes[2]}></ImgText1>
-            <div className="divider h-12 sm:h-24"></div>
-
-            <Stoerer1 data={dataStart.linkBox}></Stoerer1>
+            {/* <StoererLine></StoererLine> */}
+            <div data-aos="fade-up">
+                <div className="w-full bg-white py-12">
+                    <ImgText1 data={dataStart.textImageBoxes[1]} order></ImgText1>
+                </div>
+            </div>
+            <div className="divider h-12 sm:h-12"></div>
+            <div data-aos="fade-up">
+                <ImgText1 data={dataStart.textImageBoxes[2]}></ImgText1>
+                <div className="divider h-12 sm:h-24"></div>
+            </div>
+            <div data-aos="fade-right">
+                <Stoerer1 data={dataStart.linkBox}></Stoerer1>
+            </div>
             <div className="divider h-12 sm:h-12"></div>
             <Logos1 data={dataSetting.logosPartner}></Logos1>
         </>

@@ -2,12 +2,10 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 
 const Breadcrumbs = (props) => {
-    useEffect(() => {
-        console.log(props.links.length);
-    }, []);
+    useEffect(() => {}, []);
 
     return (
-        <div className={`container m-auto  h-12 px-8 sm:px-24 mt-8 text-sm  ${props.colspan}`}>
+        <div className={`container m-auto  h-12 px-8 sm:px-24 mt-4 sm:mt-8 text-sm  ${props.colspan}`}>
             <div className="">
                 {props.links.map((e, i) => {
                     return (

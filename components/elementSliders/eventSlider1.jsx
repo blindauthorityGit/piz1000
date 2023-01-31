@@ -33,6 +33,19 @@ function urlFor(source) {
 const EventSlider1 = (props) => {
     const [isLoaded, setisLoaded] = useState(false);
     const [swiper, setSwiper] = useState(null);
+    const [isLastSlideLeft, setIsLastSlideLeft] = useState(true);
+    const [isLastSlideRight, setIsLastSlideRight] = useState(false);
+
+    const handleNav = () => {
+        if (swiper && swiper.activeIndex === 0) {
+            setIsLastSlideLeft(true);
+        } else if (swiper.activeIndex === swiper.slides.length - 1) {
+            setIsLastSlideRight(true);
+        } else {
+            setIsLastSlideLeft(false);
+            setIsLastSlideRight(false);
+        }
+    };
 
     useEffect(() => {
         setisLoaded(true);
@@ -68,24 +81,30 @@ const EventSlider1 = (props) => {
                 props.colspan
             }`}
         >
-            <div className="w-full z-50">
+            <div className="w-full z-50 md:hidden">
                 <div
                     onClick={() => {
-                        swiper && swiper.slidePrev();
+                        swiper.slidePrev();
                     }}
                     className="absolute top-1/2  transform -translate-x-1/2 z-50 "
                 >
-                    <button className="bg-black rounded-full h-8 w-8 flex items-center justify-center">
+                    <button
+                        style={{ opacity: isLastSlideLeft ? 0.5 : 1 }}
+                        className="bg-black rounded-full h-8 w-8 flex items-center justify-center"
+                    >
                         <FaChevronLeft className="text-white" />
                     </button>
                 </div>
                 <div
                     onClick={() => {
-                        swiper && swiper.slideNext();
+                        swiper.slideNext();
                     }}
                     className="absolute top-1/2 right-[-6px] transform -translate-x-1/2  z-50"
                 >
-                    <button className="bg-black rounded-full h-8 w-8 flex items-center justify-center">
+                    <button
+                        style={{ opacity: isLastSlideRight ? 0.5 : 1 }}
+                        className="bg-black rounded-full h-8 w-8 flex items-center justify-center"
+                    >
                         <FaChevronRight className="text-white" />
                     </button>
                 </div>
@@ -103,12 +122,16 @@ const EventSlider1 = (props) => {
                 slidesPerView={4}
                 pagination={{ clickable: true }}
                 onSwiper={(swiper) => {
-                    console.log(swiper);
+                    console.log(swiper.params);
                     {
                         setSwiper(swiper);
                     }
                 }}
-                onSlideChange={() => console.log("slide change")}
+                onSlideChange={() => {
+                    console.log("slide change");
+                    console.log(swiper.activeIndex);
+                    handleNav();
+                }}
                 className="h-full eventSlider pb-[3.75rem!important]"
                 style={{ paddingBottom: "3.75rem!important" }}
                 breakpoints={{
@@ -158,7 +181,7 @@ const EventSlider1 = (props) => {
                                     />
                                 </div>
                             </Link>
-                            <div className="text-center">
+                            <div className="text-center sm:text-left">
                                 <h2 className="font-oswald font-semibold text-xl mt-3">{e.title}</h2>
                                 <p className="font-serif mb-16 mt-2 text-sm">{e.subTitle}</p>
                             </div>

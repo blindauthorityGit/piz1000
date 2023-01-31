@@ -14,6 +14,10 @@ import Favicon from "../../assets/favicon.svg";
 
 import Logo from "../../assets/logo.svg";
 
+// AOS
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 //ImageBuilder
 import myConfiguredSanityClient from "../../client";
 
@@ -37,22 +41,34 @@ const Event = ({ post, dataAll }) => {
             title: "Events",
             link: "/events",
         },
+        {
+            title: "Events",
+            link: "/events",
+        },
     ]);
 
     useEffect(() => {
-        console.log(
-            post,
-            dataAll
-            // urlFor(
-            //     post.seo && post.seo.advancedSEO && post.seo.advancedSEO.ogImage
-            //         ? urlFor(post.seo.advancedSEO.ogImage)
-            //         : null
-            // )
-        );
+        console.log(post, dataAll);
         setUrl(window.location.href);
 
-        setLinkList((prev) => [...prev, { title: post.title, link: post.slug.current }]);
-    }, []);
+        setLinkList([
+            {
+                title: "Home",
+                link: "/",
+            },
+            {
+                title: "Events",
+                link: "/events",
+            },
+            {
+                title: post.title,
+                link: post.slug.current,
+            },
+        ]);
+        AOS.init({
+            duration: 800,
+        });
+    }, [dataAll, post]);
 
     return (
         <>
@@ -99,14 +115,18 @@ const Event = ({ post, dataAll }) => {
                         <meta property="og:site_name" content="PIZ 1000 - Pittner Regionalmuseum" />
                         <meta property="og:locale" content="de_DE" />
                     </Head>
-                    <Hero1
-                        height="h-[200px] sm:h-[480px]"
-                        bgImage={post && post.mainImage ? post.mainImage : Logo}
-                    ></Hero1>
+                    <div data-aos="fade-right">
+                        <Hero1
+                            height="h-[200px] sm:h-[480px]"
+                            bgImage={post && post.mainImage ? post.mainImage : Logo}
+                        ></Hero1>
+                    </div>
                     <Breadcrumbs links={linkList}></Breadcrumbs>
-                    <ImgText3 data={post}>
-                        <Info1 data={post} bg="bg-[#F9F9F9]"></Info1>
-                    </ImgText3>
+                    <div data-aos="fade-up">
+                        <ImgText3 data={post}>
+                            <Info1 data={post} bg="bg-[#F9F9F9]"></Info1>
+                        </ImgText3>
+                    </div>
                     {post?.gallery ? (
                         <GallerySlider1 data={post?.gallery ? post.gallery : null}></GallerySlider1>
                     ) : null}
@@ -122,7 +142,9 @@ const Event = ({ post, dataAll }) => {
                         }
                     />
                     <div className="divider h-12 sm:h-24"></div>
-                    <EventSlider1 nonstart events={dataAll}></EventSlider1>
+                    <div data-aos="fade-right">
+                        <EventSlider1 nonstart events={dataAll}></EventSlider1>
+                    </div>
                     <div className="divider h-12 sm:h-24"></div>
                 </>
             ) : (

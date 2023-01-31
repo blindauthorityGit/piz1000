@@ -36,8 +36,26 @@ const Events = ({ dataAll }) => {
     return (
         <>
             <Head>
-                {/* <title>{post.seo.title}</title>
-                <meta name="description" content={post.seo.description} /> */}
+                <title>{dataSetting.title}</title>
+                <meta name="description" content={dataAbout.seo.mainSEO.description} />
+                <meta
+                    name="keywords"
+                    content={dataAbout.seo.mainSEO.keywords && dataAbout.seo.mainSEO.keywords.map((e) => e)}
+                />
+                <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+                <link rel="icon" href={urlFor(dataSetting.favicon)} />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://www.piz1000.at" />
+                <meta
+                    property="og:image"
+                    content={dataAbout.seo.advancedSEO.ogImage ? urlFor(dataSetting.seo.advancedSEO.ogImage) : null}
+                />
+                <meta
+                    property="og:description"
+                    content={dataAbout.seo.advancedSEO.ogDescription ? dataAbout.seo.advancedSEO.ogDescription : null}
+                />
+                <meta property="og:site_name" content="PIZ 1000 - Pittner Regionalmuseum" />
+                <meta property="og:locale" content="de_DE" />
             </Head>
             <CalenderGrid1 data={dataAll}></CalenderGrid1>
             <ElementGrid1 data={dataAll}></ElementGrid1>
