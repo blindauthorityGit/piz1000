@@ -18,7 +18,7 @@ function urlFor(source) {
 
 const TextImg4 = (props) => {
     return (
-        <div className={`w-full container  sm:px-24 m-auto lg:gap-16 grid grid-cols-12  ${props.colspan}`}>
+        <div className={`w-full container px-8 sm:px-24 m-auto lg:gap-16 grid grid-cols-12  ${props.colspan}`}>
             <div
                 className={`left col-span-12 lg:col-span-8 relative   ${
                     props.data.order ? "lg:order-last" : "lg:order-first"
@@ -55,7 +55,7 @@ const TextImg4 = (props) => {
                         </button>
                     </Link>
                 ) : null}
-                <div className="mt-8">
+                <div className="mt-8 flex justify-center sm:block">
                     <img src={Siegel.src} alt="Gütesiegel Museum" />
                 </div>
             </div>

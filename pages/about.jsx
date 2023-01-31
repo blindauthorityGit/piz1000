@@ -76,10 +76,10 @@ export default function About({ dataAbout, dataEvent, dataSetting, dataInfos }) 
             <ImgText4 data={dataAbout.textImageBoxes[2]}></ImgText4>
             <div className="divider h-24"></div>
             <InfoBox1 data={dataInfos.infoBoxes}></InfoBox1>
-            <div className="divider h-24"></div>
+            <div className="divider h-12"></div>
 
             <EventSlider1 events={dataEvent}></EventSlider1>
-            <div className="divider h-24"></div>
+            <div className="divider h-12"></div>
         </>
     );
 }

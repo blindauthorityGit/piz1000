@@ -18,7 +18,7 @@ const Footer1 = (props) => {
                 <p className="text-sm font-serif">{parse(config.kontakt)}</p>
             </div>
             <div className="col-span-6 sm:col-span-3 mb-4 sm:mb-0 first">
-                <h4 className="font-oswald text-xl lg:text-xl font-semibold mb-8 lg:mb-6 ">{config.headline2}</h4>
+                <h4 className="font-oswald text-xl lg:text-xl font-semibold mb-6 lg:mb-6 ">{config.headline2}</h4>
                 <p className="mb-2 font-bold text-sm font-serif">{parse(config.oeffnungszeiten)}</p>
                 <p className="text-sm font-serif">{parse(config.oeffnungszeitenText)}</p>
                 <p className="mb-2 font-bold mt-4 text-sm font-serif">{parse(config.oeffnungszeiten2)}</p>

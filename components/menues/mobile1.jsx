@@ -69,25 +69,25 @@ const Mobile1 = (props) => {
                             <li className="mb-4">
                                 <div className="wrap dropdown bg-white  ">
                                     <a className="text-text block my-4 subNav relative hover:text-primaryColor cursor-pointer">
-                                        Museum
-                                        <ul className="pl-8 mt-4 mb-4">
-                                            <Link href="/about">
-                                                <li className="mb-4">Über uns</li>
-                                            </Link>
-                                            <Link href="/sammlungen">
-                                                <li className="mb-4">Sammlungen</li>
-                                            </Link>
-                                            <Link
-                                                href="https://atelierbuchner.at/piz1000/Museumsleitbild.pdf"
-                                                target="_blank"
-                                            >
-                                                <li className="mb-4">Leitbild</li>
-                                            </Link>
-                                            <Link href="/kontakt">
-                                                <li className="mb-4">Kontakt</li>
-                                            </Link>
-                                        </ul>
+                                        Museum{" "}
                                     </a>
+                                    <ul className="pl-8 mt-4 mb-4">
+                                        <Link href="/about">
+                                            <li className="mb-4">Über uns</li>
+                                        </Link>
+                                        <Link href="/sammlungen">
+                                            <li className="mb-4">Sammlungen</li>
+                                        </Link>
+                                        <Link
+                                            href="https://atelierbuchner.at/piz1000/Museumsleitbild.pdf"
+                                            target="_blank"
+                                        >
+                                            <li className="mb-4">Leitbild</li>
+                                        </Link>
+                                        <Link href="/kontakt">
+                                            <li className="mb-4">Kontakt</li>
+                                        </Link>
+                                    </ul>
 
                                     <Link href="./besuch">
                                         <a className="text-text block my-4 subNav relative mt-4 hover:text-primaryColor cursor-pointer">

@@ -31,7 +31,7 @@ export default function Besucher({ dataImpressum, dataEvent, dataSetting, dataIn
 
             <Breadcrumbs links={linkList}></Breadcrumbs>
             <div className="container m-auto grid grid-cols-12 mb-12 mt-8">
-                <div className="col-span-12">
+                <div className="col-span-12 px-8 sm:px-16">
                     <h2 className="font-oswald font-bold text-3xl mb-6">Impressum </h2>
                     <PortableText value={dataImpressum.content} />
                 </div>

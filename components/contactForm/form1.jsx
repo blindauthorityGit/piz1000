@@ -39,7 +39,7 @@ const Form1 = (props) => {
         }
     }
     return (
-        <MainContainer width="container sm:pt-16 sm:pt-16 sm:pb-12  relative px-8 sm:px-12 xl:px-32">
+        <MainContainer width="container sm:pt-4 sm:pb-12  relative px-8 sm:px-12 xl:px-32">
             <div className="col-span-12 lg:col-span-8 grid grid-cols-12">
                 <form
                     onSubmit={handleSubmit(onSubmitForm)}
