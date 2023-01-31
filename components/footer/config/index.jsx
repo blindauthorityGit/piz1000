@@ -19,7 +19,7 @@ const config = {
     partner2: Partner2,
     partner2Link: "#",
     linksTitles: ["Museum", "Programm", "Impressum", "Datenschutz"],
-    links: ["museum", "programm", "impressum", "datenschutz"],
+    links: ["about", "events", "impressum", "datenschutz"],
     text: "<p>360° Tour durch das Musem Pitten und Umgebung</p>",
     buttonText: "Mehr",
     buttonLink: "ueberuns",

@@ -27,9 +27,14 @@ const Info2 = (props) => {
             </div>
             <div className={`left  font-oswald font-bold text-lg  col-span-4`}>Zeiten:</div>
             <div className={`right font-serif col-span-8 mb-4`}>
+                <span className="font-bold"> {props.data.oeffnungszeiten.mainTime}</span>
+                <br></br>
                 {props.data.oeffnungszeiten.description}
                 <br></br>
-                {props.data.oeffnungszeiten.mainTime}
+                <br></br>
+                <span className="font-bold"> {props.data.oeffnungszeiten.winterTime}</span>
+                <br></br>
+                {props.data.oeffnungszeiten.descriptionWinter}
             </div>
             <div className={`left  font-oswald font-bold text-lg  col-span-4`}>Eintritt:</div>
             <div className={`right font-serif col-span-8 mb-4`}>
