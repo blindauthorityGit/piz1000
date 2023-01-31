@@ -16,6 +16,7 @@ import "aos/dist/aos.css";
 
 // assets
 import Siegel from "../assets/siegelBG2.svg";
+import Favicon from "../assets/favicon.svg";
 
 //ImageBuilder
 import myConfiguredSanityClient from "../client";
@@ -48,7 +49,7 @@ export default function Home({ dataStart, dataEvent, dataBlog, dataSetting }) {
                 <meta name="description" content={dataSetting.seo.mainSEO.description} />
                 <meta name="keywords" content={dataSetting.seo.mainSEO.keywords.map((e) => e)} />
                 <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-                {/* <link rel="icon" href={urlFor(dataSetting.favicon)} /> */}
+                <link rel="icon" href={Favicon.src} />
                 <meta property="og:type" content="website" />
                 <meta property="og:url" content="https://www.piz1000.at" />
                 <meta

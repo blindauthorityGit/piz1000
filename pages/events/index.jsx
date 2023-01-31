@@ -5,6 +5,7 @@ import { useState, useEffect, useRef } from "react";
 
 import { CalenderGrid1 } from "../../components/calenderGrid";
 import { ElementGrid1 } from "../../components/elementGrid";
+import Favicon from "../../assets/favicon.svg";
 
 //ImageBuilder
 import myConfiguredSanityClient from "../../client";
@@ -36,14 +37,14 @@ const Events = ({ dataAll, dataSetting }) => {
     return (
         <>
             <Head>
-                <title>{dataSetting.title}</title>
-                <meta name="description" content={dataAbout.seo.mainSEO.description} />
-                <meta
+                <title>PIZ 1000 - Events</title>
+                <meta name="description" content="Unsere kommenden Events rund um das PIZ 1000" />
+                {/* <meta
                     name="keywords"
                     content={dataAbout.seo.mainSEO.keywords && dataAbout.seo.mainSEO.keywords.map((e) => e)}
-                />
+                /> */}
                 <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-                <link rel="icon" href={urlFor(dataSetting.favicon)} />
+                <link rel="icon" href={Favicon.src} />
                 <meta property="og:type" content="website" />
                 <meta property="og:url" content="https://www.piz1000.at" />
                 <meta
