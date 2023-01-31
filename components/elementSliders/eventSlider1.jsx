@@ -75,7 +75,7 @@ const EventSlider1 = (props) => {
                     }}
                     className="absolute top-1/2  transform -translate-x-1/2 z-50 "
                 >
-                    <button className="bg-black rounded-full h-10 w-10 flex items-center justify-center">
+                    <button className="bg-black rounded-full h-8 w-8 flex items-center justify-center">
                         <FaChevronLeft className="text-white" />
                     </button>
                 </div>
@@ -83,9 +83,9 @@ const EventSlider1 = (props) => {
                     onClick={() => {
                         swiper && swiper.slideNext();
                     }}
-                    className="absolute top-1/2 right-[-12px] transform -translate-x-1/2  z-50"
+                    className="absolute top-1/2 right-[-6px] transform -translate-x-1/2  z-50"
                 >
-                    <button className="bg-black rounded-full h-10 w-10 flex items-center justify-center">
+                    <button className="bg-black rounded-full h-8 w-8 flex items-center justify-center">
                         <FaChevronRight className="text-white" />
                     </button>
                 </div>
