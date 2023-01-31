@@ -16,10 +16,10 @@ function BlogTextShorter({ blocks }) {
             }
         });
 
-        if (isMobile ? fullText.length <= 180 : fullText.length <= 300) {
+        if (isMobile ? fullText.length <= 120 : fullText.length <= 300) {
             return fullText;
         } else {
-            let shortText = fullText.slice(0, isMobile ? 177 : 297) + "...";
+            let shortText = fullText.slice(0, isMobile ? 117 : 297) + "...";
             let lastSpace = shortText.lastIndexOf(" ");
             return shortText.slice(0, lastSpace) + "...";
         }
