@@ -35,7 +35,7 @@ export default function Besucher({ dataBesucher, dataEvent, dataSetting, dataInf
     return (
         <>
             <Head>
-                <title>Site title</title>
+                <title>PIZ 1000 - Kontakt</title>
             </Head>
 
             <Breadcrumbs links={linkList}></Breadcrumbs>

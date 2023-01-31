@@ -5,6 +5,7 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { menuItems, socialMedia } from "../components/menues/config";
 import Logo from "../assets/logo.svg";
 import { TopLine1 } from "../components/topLine";
+import CookieConsent from "react-cookie-consent";
 
 function MyApp({ Component, pageProps, dataSetting }) {
     return (
@@ -24,6 +25,17 @@ function MyApp({ Component, pageProps, dataSetting }) {
             <div className="w-full bg-white py-6 sm:py-12">
                 <Footer1></Footer1>
             </div>
+            <CookieConsent
+                location="bottom"
+                buttonText="OK"
+                cookieName="myAwesomeCookieName2"
+                style={{ background: "#2B373B" }}
+                buttonStyle={{ color: "#4e503b", fontSize: "13px" }}
+                expires={150}
+            >
+                Unsere Website verwendet Cookies, um Ihnen eine bessere Nutzererfahrung zu bieten. Durch die Nutzung
+                unserer Seite stimmen Sie unserer Verwendung von Cookies zu.
+            </CookieConsent>
         </>
     );
 }

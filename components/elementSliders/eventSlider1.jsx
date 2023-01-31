@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 // SWIPER
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, A11y } from "swiper";
+import { Pagination, A11y, Navigation } from "swiper";
 
 // Import Swiper styles
 import "swiper/css";
@@ -17,7 +17,7 @@ import sliderConfig from "./slides/config";
 import { motion } from "framer-motion";
 
 // icons
-import { BsArrowRightShort } from "react-icons/bs";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 //ImageBuilder
 import myConfiguredSanityClient from "../../client";
@@ -32,6 +32,8 @@ function urlFor(source) {
 
 const EventSlider1 = (props) => {
     const [isLoaded, setisLoaded] = useState(false);
+    const [swiper, setSwiper] = useState(null);
+
     useEffect(() => {
         setisLoaded(true);
     }, []);
@@ -66,6 +68,28 @@ const EventSlider1 = (props) => {
                 props.colspan
             }`}
         >
+            <div className="w-full z-50">
+                <div
+                    onClick={() => {
+                        swiper && swiper.slidePrev();
+                    }}
+                    className="absolute top-1/2  transform -translate-x-1/2 z-50 "
+                >
+                    <button className="bg-black rounded-full h-12 w-12 flex items-center justify-center">
+                        <FaChevronLeft className="text-white" />
+                    </button>
+                </div>
+                <div
+                    onClick={() => {
+                        swiper && swiper.slideNext();
+                    }}
+                    className="absolute top-1/2 right-[-18px] transform -translate-x-1/2  z-50"
+                >
+                    <button className="bg-black rounded-full h-12 w-12 flex items-center justify-center">
+                        <FaChevronRight className="text-white" />
+                    </button>
+                </div>
+            </div>
             {props.nonstart ? (
                 <h2 className="font-oswald text-4xl lg:text-6xl font-semibold mb-8 lg:mb-12">
                     Weitere Veranstaltungen:
@@ -74,11 +98,16 @@ const EventSlider1 = (props) => {
 
             <Swiper
                 // install Swiper modules
-                modules={[Pagination, A11y]}
+                modules={[Pagination, Navigation, A11y]}
                 spaceBetween={50}
                 slidesPerView={4}
                 pagination={{ clickable: true }}
-                onSwiper={(swiper) => console.log(swiper)}
+                onSwiper={(swiper) => {
+                    console.log(swiper);
+                    {
+                        setSwiper(swiper);
+                    }
+                }}
                 onSlideChange={() => console.log("slide change")}
                 className="h-full eventSlider pb-[3.75rem!important]"
                 style={{ paddingBottom: "3.75rem!important" }}
@@ -86,22 +115,31 @@ const EventSlider1 = (props) => {
                     // when window width is >= 640px
                     320: {
                         slidesPerView: 1,
+                        navigation: true,
                     },
                     768: {
                         slidesPerView: 2,
+                        navigation: true,
                     },
                     1024: {
                         slidesPerView: 3,
+                        navigation: false,
                     },
                     1280: {
                         slidesPerView: 4,
+                        navigation: false,
                     },
                 }}
             >
                 {props.events.map((e, i) => {
                     return (
-                        <SwiperSlide key={`sliderKey${i}`} className="relative min-h-[400px!important]">
-                            <h3 className="font-oswald text-xl font-semibold">
+                        <SwiperSlide key={`sliderKey${i}`} className="px-6 sm:px-0 relative min-h-[380px!important]">
+                            <h3
+                                onClick={() => {
+                                    swiper && swiper.slideNext();
+                                }}
+                                className="font-oswald text-xl font-semibold"
+                            >
                                 {e.zeit.date.split("-").reverse().join(".")}
                             </h3>
                             <p className="font-serif text-sm mb-2 mt-1">Beginn: {e.zeit.time}</p>
@@ -112,15 +150,17 @@ const EventSlider1 = (props) => {
                                             scale: 1.1,
                                             transition: { duration: 0.3 },
                                         }}
-                                        src={urlFor(e.mainImage).width(300).height(200)}
+                                        src={urlFor(e.mainImage).width(300).height(160)}
                                         alt={e.title}
                                     />
                                 </div>
                             </Link>
-                            <h2 className="font-oswald font-semibold text-xl mt-3">{e.title}</h2>
-                            <p className="font-serif mb-20 mt-2 text-sm">{e.subTitle}</p>
+                            <div className="text-center">
+                                <h2 className="font-oswald font-semibold text-xl mt-3">{e.title}</h2>
+                                <p className="font-serif mb-16 mt-2 text-sm">{e.subTitle}</p>
+                            </div>
                             <Link href={`/events/${e.slug.current}`}>
-                                <button className=" border absolute bottom-0 border-black text-black hover-underline-animation  flex items-center justify-center mt-8 py-3 px-6 w-full lg:w-auto min-w-[10rem] lg:max-w-[12rem] font-oswald uppercase rounded-md">
+                                <button className=" border absolute bottom-0 border-black text-black hover-underline-animation  flex items-center justify-center mt-8 py-3 px-6 w-[85%] sm:w-full lg:w-auto min-w-[10rem] lg:max-w-[12rem] font-oswald uppercase rounded-md">
                                     <span className=""> Mehr</span>
                                 </button>
                             </Link>
