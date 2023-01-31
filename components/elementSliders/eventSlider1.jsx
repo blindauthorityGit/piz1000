@@ -133,7 +133,10 @@ const EventSlider1 = (props) => {
             >
                 {props.events.map((e, i) => {
                     return (
-                        <SwiperSlide key={`sliderKey${i}`} className="px-6 sm:px-0 relative min-h-[380px!important]">
+                        <SwiperSlide
+                            key={`sliderKey${i}`}
+                            className="px-6 sm:px-0 relative min-h-[350px!important] sm:min-h-[380px!important]"
+                        >
                             <h3
                                 onClick={() => {
                                     swiper && swiper.slideNext();
