@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 // SWIPER
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -9,6 +9,9 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
+
+// hooks
+import useViewportHeight from "../utils/useViewportHeight";
 
 //config
 import sliderConfig from "./slides/config";
@@ -31,6 +34,8 @@ function urlFor(source) {
 }
 
 const HeroSlider1 = (props) => {
+    const height = useViewportHeight();
+
     const textMotion = {
         rest: {
             x: -50,
@@ -54,6 +59,10 @@ const HeroSlider1 = (props) => {
             },
         },
     };
+
+    useEffect(() => {
+        console.log(height);
+    }, []);
 
     return (
         <div className={`h-[100%] sm:h-[580px] container m-auto relative ${props.colspan}`}>
