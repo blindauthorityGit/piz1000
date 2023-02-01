@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 // SWIPER
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, A11y } from "swiper";
+import { Pagination, A11y, Navigation } from "swiper";
 import Image from "next/image";
 
 // Import Swiper styles
@@ -11,11 +11,8 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
-//config
-import sliderConfig from "./slides/config";
-
-// animations
-import { motion } from "framer-motion";
+// icons
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 // textParse
 import { PortableText } from "@portabletext/react";
@@ -33,6 +30,20 @@ function urlFor(source) {
 
 const SammlungSlider1 = (props) => {
     const [isLoaded, setisLoaded] = useState(false);
+    const [swiper, setSwiper] = useState(null);
+    const [isLastSlideLeft, setIsLastSlideLeft] = useState(true);
+    const [isLastSlideRight, setIsLastSlideRight] = useState(false);
+
+    const handleNav = () => {
+        if (swiper && swiper.activeIndex === 0) {
+            setIsLastSlideLeft(true);
+        } else if (swiper.activeIndex === swiper.slides.length - 1) {
+            setIsLastSlideRight(true);
+        } else {
+            setIsLastSlideLeft(false);
+            setIsLastSlideRight(false);
+        }
+    };
     useEffect(() => {
         setisLoaded(true);
     }, []);
@@ -68,6 +79,34 @@ const SammlungSlider1 = (props) => {
                     props.colspan
                 }`}
             >
+                <div className="w-full z-50 ">
+                    <div
+                        onClick={() => {
+                            swiper.slidePrev();
+                        }}
+                        className="absolute top-1/2  transform -translate-x-1/2 z-50 "
+                    >
+                        <button
+                            style={{ opacity: isLastSlideLeft ? 0.5 : 1 }}
+                            className="bg-black rounded-full h-8 w-8 flex items-center justify-center"
+                        >
+                            <FaChevronLeft className="text-white" />
+                        </button>
+                    </div>
+                    <div
+                        onClick={() => {
+                            swiper.slideNext();
+                        }}
+                        className="absolute top-1/2 right-[-6px] transform -translate-x-1/2  z-50"
+                    >
+                        <button
+                            style={{ opacity: isLastSlideRight ? 0.5 : 1 }}
+                            className="bg-black rounded-full h-8 w-8 flex items-center justify-center"
+                        >
+                            <FaChevronRight className="text-white" />
+                        </button>
+                    </div>
+                </div>
                 {props.nonstart ? (
                     <h2 className="font-oswald text-4xl lg:text-6xl font-semibold mb-4 lg:mb-12">
                         Weitere Veranstaltungen:
@@ -76,26 +115,35 @@ const SammlungSlider1 = (props) => {
 
                 <Swiper
                     // install Swiper modules
-                    modules={[Pagination, A11y]}
+                    modules={[Pagination, A11y, Navigation]}
                     spaceBetween={50}
                     slidesPerView={1}
                     pagination={{ clickable: true }}
-                    onSwiper={(swiper) => console.log(swiper)}
-                    onSlideChange={() => console.log("slide change")}
+                    onSwiper={(swiper) => {
+                        console.log(swiper.params);
+                        {
+                            setSwiper(swiper);
+                        }
+                    }}
+                    onSlideChange={() => {
+                        console.log("slide change");
+                        console.log(swiper.activeIndex);
+                        handleNav();
+                    }}
                     className="h-full eventSlider"
                     style={{ paddingBottom: "3.75rem!important" }}
                 >
                     {props.data.map((e, i) => {
                         return (
                             <SwiperSlide key={`sliderKey${i}`} className="relative grid grid-cols-12 gap-6">
-                                <div className="col-span-12 sm:col-span-6 sm:pr-16 sm:pt-16 order-last sm:order-first">
+                                <div className="col-span-12 px-10 sm:px-16 sm:col-span-6 sm:pr-16 sm:pt-16 order-last sm:order-first">
                                     <h2 className="font-oswald font-semibold text-4xl mt-3 mb-8">{e.title}</h2>
                                     <div className="font-serif mb-2 mt-1">
                                         {" "}
                                         <PortableText value={e.text} />
                                     </div>
                                 </div>
-                                <div className="col-span-12 sm:col-span-6 relative min-h-[300px] sm:min-h-[600px]">
+                                <div className="col-span-12  sm:col-span-6 relative min-h-[300px] sm:min-h-[600px]">
                                     <Image
                                         // {...ImagePropsGallery(i)}
                                         src={urlFor(e.image).url()}

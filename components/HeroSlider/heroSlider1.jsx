@@ -36,6 +36,7 @@ function urlFor(source) {
 const HeroSlider1 = (props) => {
     const height = useViewportHeight();
     const [heroHeight, setHeroHeight] = useState(0);
+    const [isMobile, setIsMobile] = useState(false);
 
     const textMotion = {
         rest: {
@@ -66,6 +67,15 @@ const HeroSlider1 = (props) => {
         setHeroHeight(height);
     }, [height, props]);
 
+    useEffect(() => {
+        console.log(window.innerWidth);
+        if (typeof window !== "undefined") {
+            // detect window screen width function
+            setIsMobile(window.innerWidth <= 576);
+        }
+        console.log(window.innerWidth <= 576);
+    }, []);
+
     return (
         <div className={`h-[100%] sm:h-[560px] container m-auto relative ${props.colspan}`}>
             <Swiper
@@ -85,14 +95,22 @@ const HeroSlider1 = (props) => {
                     return (
                         <SwiperSlide
                             className="bg-cover bg-center grid grid-cols-12 bg-no-repeat"
-                            style={{ backgroundImage: `url(${urlFor(e.image)})` }}
+                            style={{
+                                backgroundImage: `url(${urlFor(
+                                    isMobile
+                                        ? typeof e.imageMobile !== "undefined"
+                                            ? e.imageMobile
+                                            : e.image
+                                        : e.image
+                                )})`,
+                            }}
                             key={`slide${i}`}
                         >
                             {console.log(
                                 e.links.external === undefined ? e.links.internal.slug.current : e.links.external
                             )}
                             <div className="textBox z-40 px-16 sm:px-36 lg:px-48 col-span-12 lg:col-span-10 xl:col-span-8 flex flex-col justify-center items-center sm:items-start">
-                                <p className="subLine text text-white font-oswald mb-4 text-lg sm:font-semibold tracking-wide text-center sm:text-left">
+                                <p className="subLine text text-white font-oswald mb-4 text-lg  tracking-wide text-center sm:text-left">
                                     {e.topline}
                                 </p>
                                 <h1 className="text-white text-4xl sm:text-6xl font-oswald uppercase font-bold text-center sm:text-left">

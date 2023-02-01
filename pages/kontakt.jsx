@@ -48,7 +48,9 @@ export default function Besucher({ dataBesucher, dataEvent, dataSetting, dataInf
             <BasicText2 title="Wie komme ich nach Pitten?" data={dataSetting.kontakt}></BasicText2>
 
             <div className="divider h-24"></div>
-            <InfoBox1 data={dataInfos.infoBoxes}></InfoBox1>
+            <div data-aos="fade-up" className="w-full bg-white py-6">
+                <InfoBox1 data={dataInfos.infoBoxes}></InfoBox1>
+            </div>
             <div className="divider h-12"></div>
             <BasicText1 data={dataBesucher.basicTexts[0]}></BasicText1>
             <div className="divider h-12"></div>

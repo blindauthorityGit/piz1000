@@ -1,7 +1,11 @@
 import React from "react";
 import GoogleMapReact from "google-map-react";
-
-const AnyReactComponent = ({ text }) => <div>{text}</div>;
+import Snazzy from "./snazzy";
+const AnyReactComponent = ({ text }) => (
+    <div className="h-12 w-12 bg-primary rounded-full text-white flex justify-center items-center font-bold font-oswald">
+        {text}
+    </div>
+);
 
 export default function SimpleMap() {
     const defaultProps = {
@@ -10,6 +14,11 @@ export default function SimpleMap() {
             lng: 16.18766,
         },
         zoom: 16,
+        options: [
+            {
+                styles: Snazzy,
+            },
+        ],
     };
 
     return (
@@ -20,7 +29,7 @@ export default function SimpleMap() {
                 defaultCenter={defaultProps.center}
                 defaultZoom={defaultProps.zoom}
             >
-                <AnyReactComponent lat={47.71658} lng={16.18766} text="My Marker" />
+                <AnyReactComponent lat={47.71658} lng={16.18766} text="PIZ 1000" />
             </GoogleMapReact>
         </div>
     );
