@@ -117,7 +117,7 @@ const Event = ({ post, dataAll }) => {
                     </Head>
                     <div data-aos="fade-right">
                         <Hero1
-                            height="h-[200px] sm:h-[480px]"
+                            height="h-[200px] sm:h-[380px]"
                             bgImage={post && post.mainImage ? post.mainImage : Logo}
                         ></Hero1>
                     </div>
