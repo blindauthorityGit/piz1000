@@ -21,9 +21,10 @@ module.exports = {
                 oswald: ["Oswald", "sans-serif"],
             },
             colors: {
-                primary: "#ea4d46",
+                primary: "#A6140A",
                 lightGrey: "#F9F9F9",
                 darkGrey: "#323232",
+                darkGreen: "#22261E",
             },
         },
     },

@@ -16,7 +16,7 @@ const TopLine1 = (props) => {
     }, []);
 
     return (
-        <nav className={`w-full bg-red-500 h-12 font-serif font-semibold text-white    ${props.colspan}`}>
+        <nav className={`w-full bg-primary h-12 font-serif font-semibold text-white    ${props.colspan}`}>
             <div className="container m-auto flex items-center justify-around h-full text-xs">
                 <div className="col-span-4 opacity-100 hidden sm:block">
                     {month >= 11 || month <= 3 ? config.oeffnungszeiten : config.oeffnungszeiten2}

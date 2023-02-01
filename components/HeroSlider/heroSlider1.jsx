@@ -67,7 +67,7 @@ const HeroSlider1 = (props) => {
     }, [height, props]);
 
     return (
-        <div className={`h-[100%] sm:h-[580px] container m-auto relative ${props.colspan}`}>
+        <div className={`h-[100%] sm:h-[560px] container m-auto relative ${props.colspan}`}>
             <Swiper
                 // install Swiper modules
                 modules={[Navigation, Pagination, Scrollbar, A11y]}
@@ -108,12 +108,12 @@ const HeroSlider1 = (props) => {
                                             : e.links.external
                                     }
                                 >
-                                    <button className="bg-red-500 hover-underline-animation  flex items-center justify-center text-white mt-8 py-3 px-6 min-w-[10rem] max-w-[12rem] font-oswald uppercase rounded-md">
+                                    <button className="bg-primary hover-underline-animation  flex items-center justify-center text-white mt-8 py-3 px-6 min-w-[10rem] max-w-[12rem] font-oswald uppercase rounded-md">
                                         <span className="">Mehr</span>
                                     </button>
                                 </Link>
                             </div>
-                            <div className="absolute w-full h-full bg-black top-0 opacity-40"></div>
+                            <div className="absolute w-full h-full bg-darkGreen top-0 opacity-50"></div>
                             {/* <img src={e.image} alt="" /> */}
                         </SwiperSlide>
                     );
