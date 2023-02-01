@@ -56,7 +56,7 @@ const HeroSlider1 = (props) => {
     };
 
     return (
-        <div className={`h-[calc(100vh-100px)] sm:h-[580px] container m-auto relative ${props.colspan}`}>
+        <div className={`h-[100%] sm:h-[580px] container m-auto relative ${props.colspan}`}>
             <Swiper
                 // install Swiper modules
                 modules={[Navigation, Pagination, Scrollbar, A11y]}
