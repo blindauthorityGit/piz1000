@@ -53,7 +53,7 @@ const Mobile1 = (props) => {
                 className={`navbar slide-in-right ${props.klasse} 
                  w-full h-screen bg-white fixed z-50 top-0 `}
             >
-                <div onClick={props.onClick} className="closer absolute right-8 top-8">
+                <div onClick={props.onClick} className="closer absolute right-8 top-16">
                     <GrClose></GrClose>
                 </div>
                 <div className="container h-screen py-12 px-12 font-europa tracking-wider">
