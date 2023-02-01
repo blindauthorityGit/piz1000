@@ -5,16 +5,14 @@ const useViewportHeight = () => {
 
     useEffect(() => {
         if (typeof window !== "undefined") {
-            if (height === 0) {
-                setHeight(window.innerHeight);
-            }
-            const handleResize = () => setHeight(window.innerHeight);
+            setHeight(window.screen.availHeight);
+            const handleResize = () => setHeight(window.screen.availHeight);
             window.addEventListener("resize", handleResize);
             return () => {
                 window.removeEventListener("resize", handleResize);
             };
         }
-    }, [height]);
+    }, []);
 
     return height;
 };

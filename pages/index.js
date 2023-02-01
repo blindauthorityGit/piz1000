@@ -9,6 +9,7 @@ import { BlogGrid1 } from "../components/elementGrid";
 import { ImgText1 } from "../components/imgText";
 import { Stoerer1, StoererLine } from "../components/stoerer";
 import { Logos1 } from "../components/logos";
+import useViewportHeight from "../components/utils/useViewportHeight";
 
 // AOS
 import AOS from "aos";
@@ -30,8 +31,11 @@ function urlFor(source) {
 }
 
 export default function Home({ dataStart, dataEvent, dataBlog, dataSetting }) {
+    const height = useViewportHeight();
+
     const [siegelWidth, setSiegelWidth] = useState(0);
     const siegelRef = useRef();
+    const [heroHeight, setHeroHeight] = useState(0);
 
     useEffect(() => {
         setTimeout(() => {
@@ -41,6 +45,11 @@ export default function Home({ dataStart, dataEvent, dataBlog, dataSetting }) {
             duration: 1200,
         });
     }, []);
+
+    useEffect(() => {
+        console.log(height);
+        setHeroHeight(height);
+    }, [height]);
 
     return (
         <>
@@ -65,7 +74,11 @@ export default function Home({ dataStart, dataEvent, dataBlog, dataSetting }) {
                 <meta property="og:site_name" content="PIZ 1000 - Pittner Regionalmuseum" />
                 <meta property="og:locale" content="de_DE" />
             </Head>
-            <div data-aos="fade-right" className="w-full bg-white h-full sm:h-auto">
+            <div
+                data-aos="fade-right"
+                style={{ height: "calc(100% - 100px)" }}
+                className="w-full bg-white h-full sm:h-auto"
+            >
                 <HeroSlider1 slides={dataStart.mainSliders}></HeroSlider1>
             </div>
             <div className="divider h-8"></div>

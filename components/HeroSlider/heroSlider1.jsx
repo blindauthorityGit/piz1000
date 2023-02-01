@@ -35,6 +35,7 @@ function urlFor(source) {
 
 const HeroSlider1 = (props) => {
     const height = useViewportHeight();
+    const [heroHeight, setHeroHeight] = useState(0);
 
     const textMotion = {
         rest: {
@@ -62,6 +63,7 @@ const HeroSlider1 = (props) => {
 
     useEffect(() => {
         console.log(height);
+        setHeroHeight(height);
     }, [height, props]);
 
     return (
