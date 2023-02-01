@@ -62,7 +62,7 @@ const HeroSlider1 = (props) => {
 
     useEffect(() => {
         console.log(height);
-    }, []);
+    }, [height, props]);
 
     return (
         <div className={`h-[100%] sm:h-[580px] container m-auto relative ${props.colspan}`}>
