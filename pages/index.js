@@ -161,5 +161,6 @@ export async function getStaticProps() {
             dataEvent,
             dataSetting,
         },
+        revalidate: 1, // 10 seconds
     };
 }
