@@ -6,6 +6,7 @@ import { menuItems, socialMedia } from "../components/menues/config";
 import Logo from "../assets/logo.svg";
 import { TopLine1 } from "../components/topLine";
 import CookieConsent from "react-cookie-consent";
+import { Analytics } from "@vercel/analytics/react";
 
 function MyApp({ Component, pageProps, dataSetting }) {
     return (
@@ -36,6 +37,7 @@ function MyApp({ Component, pageProps, dataSetting }) {
                 Unsere Website verwendet Cookies, um Ihnen eine bessere Nutzererfahrung zu bieten. Durch die Nutzung
                 unserer Seite stimmen Sie unserer Verwendung von Cookies zu.
             </CookieConsent>
+            <Analytics />
         </>
     );
 }
