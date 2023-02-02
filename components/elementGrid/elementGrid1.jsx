@@ -59,7 +59,9 @@ const ElementGrid1 = (props) => {
                 {props.data.map((e, i) => {
                     return (
                         <div key={`gridKey${i}`} className="col-span-6 lg:col-span-4 relative mb-8">
-                            <h3 className="font-oswald text-xl font-semibold">{e.zeit.date}</h3>
+                            <h3 className="font-oswald text-xl font-semibold">
+                                {e.zeit.date.split("-").reverse().join(".")}
+                            </h3>
                             <p className="font-serif mb-2 mt-1">{e.zeit.time}</p>
                             <Link href={`/events/${e.slug.current}`}>
                                 <div className="cursor-pointer relative overflow-hidden">

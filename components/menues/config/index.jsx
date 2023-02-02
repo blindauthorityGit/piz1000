@@ -49,7 +49,7 @@ const menuItems = [
 const socialMedia = [
     {
         title: "Facebook",
-        link: "http://www.facebook.com",
+        link: "http://www.facebook.com/piz1000",
         icon: <FaFacebook></FaFacebook>,
     },
     // {

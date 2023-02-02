@@ -1,11 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, CSSProperties } from "react";
 import Link from "next/link";
-import { config } from "./config";
-import { BiChevronDown } from "react-icons/bi";
-import { motion } from "framer-motion";
+
 import Image from "next/image";
-import parse from "html-react-parser";
 import { PortableText } from "@portabletext/react";
+import ClipLoader from "react-spinners/ClipLoader";
 
 //ImageBuilder
 import myConfiguredSanityClient from "../../client";
@@ -18,7 +16,15 @@ function urlFor(source) {
     return builder.image(source);
 }
 
+// const CSSProperties = {
+//     display: "block",
+//     margin: "0 auto",
+//     borderColor: "red",
+// };
+
 const TextImg1 = (props) => {
+    const [loading, setLoading] = useState(true);
+
     return (
         <div className={`w-full container  sm:px-24 m-auto lg:gap-16 grid grid-cols-12  ${props.colspan}`}>
             <div
@@ -26,6 +32,15 @@ const TextImg1 = (props) => {
                     props.data.order ? "lg:order-last" : "lg:order-first"
                 }`}
             >
+                <div className="spinner z-50 w-full flex justify-center">
+                    <ClipLoader
+                        color={"#a22010"}
+                        loading={loading}
+                        size={150}
+                        aria-label="Loading Spinner"
+                        data-testid="loader"
+                    />
+                </div>
                 <Image
                     // {...ImagePropsGallery(i)}
                     src={urlFor(props.data.image).url()}
@@ -33,6 +48,10 @@ const TextImg1 = (props) => {
                     loading="lazy"
                     objectFit="cover"
                     alt="hero"
+                    onLoad={() => {
+                        console.log("LOADING");
+                        setLoading(false);
+                    }}
                 />
                 {props.children}
             </div>
