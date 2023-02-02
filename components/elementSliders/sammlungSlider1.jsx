@@ -135,7 +135,7 @@ const SammlungSlider1 = (props) => {
                 >
                     {props.data.map((e, i) => {
                         return (
-                            <SwiperSlide key={`sliderKey${i}`} className="relative grid grid-cols-12 gap-6">
+                            <SwiperSlide key={`sliderKey${i}`} className="relative grid grid-cols-12 gap-4 sm:gap-6">
                                 <div className="col-span-12 px-10 sm:px-16 sm:col-span-6 sm:pr-16 sm:pt-16 order-last sm:order-first">
                                     <h2 className="font-oswald font-semibold text-4xl mt-3 mb-8">{e.title}</h2>
                                     <div className="font-serif mb-2 mt-1">
@@ -143,7 +143,7 @@ const SammlungSlider1 = (props) => {
                                         <PortableText value={e.text} />
                                     </div>
                                 </div>
-                                <div className="col-span-12  sm:col-span-6 relative min-h-[300px] sm:min-h-[600px]">
+                                <div className="col-span-12  sm:col-span-6 relative min-h-[250px] sm:min-h-[600px]">
                                     <Image
                                         // {...ImagePropsGallery(i)}
                                         src={urlFor(e.image).url()}

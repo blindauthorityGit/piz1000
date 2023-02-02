@@ -46,6 +46,40 @@ const Mobile1 = (props) => {
         },
     };
 
+    const textMotion = {
+        rest: {
+            x: -50,
+            opacity: 0,
+
+            transition: {
+                duration: 2.85,
+                type: "tween",
+                ease: "easeIn",
+            },
+        },
+        end: {
+            opacity: 1,
+            x: 0,
+            display: "block",
+            transition: {
+                duration: 0.4,
+                type: "spring",
+                ease: "easeIn",
+            },
+        },
+        hover: {
+            // color: "blue",
+            x: 0,
+            opacity: 1,
+
+            transition: {
+                duration: 0.5,
+                type: "tween",
+                ease: "easeOut",
+            },
+        },
+    };
+
     return (
         <>
             <motion.nav
@@ -64,13 +98,14 @@ const Mobile1 = (props) => {
                             </a>
                         </Link>
                     </div>
-                    <div className="MenuItems text-2xl sm:text-4xl pt-4 font-oswald font-bold">
-                        <ul className="">
-                            <li className="mb-4">
+                    <div className="MenuItems text-2xl sm:text-4xl pt-4 font-oswald ">
+                        <motion.ul variants={boxMotion} className="">
+                            <motion.li variants={textMotion} className="mb-4">
                                 <div className="wrap dropdown bg-white  ">
                                     <a className="text-text block my-4 subNav relative hover:text-primaryColor cursor-pointer">
                                         Museum{" "}
                                     </a>
+                                    <hr />
                                     <ul className="pl-8 mt-4 mb-4">
                                         <Link href="/about">
                                             <li className="mb-4">Über uns</li>
@@ -88,14 +123,14 @@ const Mobile1 = (props) => {
                                             <li className="mb-4">Kontakt</li>
                                         </Link>
                                     </ul>
-
+                                    <hr />
                                     <Link href="./besuch">
                                         <a className="text-text block my-4 subNav relative mt-4 hover:text-primaryColor cursor-pointer">
                                             Besuch
                                         </a>
                                     </Link>
                                 </div>
-                            </li>
+                            </motion.li>
                             <li className="mr-8 hover:text-primaryColor hover:underline mb-4">
                                 <Link href="/events">
                                     <a>Programm</a>
@@ -106,9 +141,9 @@ const Mobile1 = (props) => {
                                     <a>Kontakt</a>
                                 </Link>
                             </li>
-                        </ul>
+                        </motion.ul>
                         <hr className="mt-6" />
-                        <ul className="">
+                        <ul className="tracking-widest">
                             <li className="mb-4 mt-8 text-sm">
                                 <div className="wrap dropdown bg-white  ">
                                     <Link href="/impressum">

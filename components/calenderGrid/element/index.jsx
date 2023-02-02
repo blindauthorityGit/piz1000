@@ -5,19 +5,21 @@ const Element = (props) => {
     return (
         <div className="h-full">
             <Link href={`/events/${props.link}`}>
-                <div className={`grid grid-cols-12 h-full  ${props.colspan}`}>
-                    <div className="col-span-4 bg-primary font-oswald p-4 h-full text-center text-white">
-                        <div className="font-oswald font-bold text-2xl">
-                            {props.date.split("-")[2]}.{props.date.split("-")[1]}.
+                <a className="hover:opacity-80">
+                    <div className={`grid grid-cols-12 h-full  ${props.colspan}`}>
+                        <div className="col-span-4 bg-primary font-oswald p-4 h-full text-center text-white">
+                            <div className="font-oswald font-bold text-xl">
+                                {props.date.split("-")[2]}.{props.date.split("-")[1]}.
+                            </div>
+                            <div className="font-oswald font-bold text-lg opacity-70">{props.year.split("-")[0]}</div>
                         </div>
-                        <div className="font-oswald font-bold text-xl opacity-70">{props.year.split("-")[0]}</div>
+                        <div className="col-span-8 pl-4 h-full">
+                            <div className="font-oswald font-bold">{props.title}</div>
+                            <div className="font-serif ">Beginn: {props.time}</div>
+                            <div className="font-serif ">{props.subline}</div>
+                        </div>
                     </div>
-                    <div className="col-span-8 pl-4 h-full">
-                        <div className="font-oswald font-bold">{props.title}</div>
-                        <div className="font-serif ">Beginn: {props.time}</div>
-                        <div className="font-serif ">{props.subline}</div>
-                    </div>
-                </div>
+                </a>
             </Link>
             <style jsx>{`
                 .hover-underline-animation span {

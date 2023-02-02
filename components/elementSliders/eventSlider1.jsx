@@ -186,7 +186,7 @@ const EventSlider1 = (props) => {
                                 <p className="font-serif mb-16 mt-2 text-sm">{e.subTitle}</p>
                             </div>
                             <Link href={`/events/${e.slug.current}`}>
-                                <button className=" border absolute bottom-0 border-black text-black hover-underline-animation  flex items-center justify-center mt-8 py-3 px-6 w-[85%] sm:w-full lg:w-auto min-w-[10rem] lg:max-w-[12rem] font-oswald uppercase rounded-md">
+                                <button className=" border absolute bottom-0 border-black text-black hover-underline-animation  flex items-center justify-center mt-8 py-3 px-6  sm:w-full lg:w-auto w-full right-0 left-0 font-oswald uppercase rounded-md">
                                     <span className=""> Mehr</span>
                                 </button>
                             </Link>

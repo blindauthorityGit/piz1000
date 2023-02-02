@@ -34,7 +34,7 @@ const Element = (props) => {
                     </div>
                     <div className="title text-2xl font-bold">{props.title}</div>
                 </div>
-                <div className="col-span-12 xl:col-span-9  xl:h-full bg-lightGrey px-8 py-8">
+                <div className="col-span-12 xl:col-span-9  xl:h-full bg-lightGrey px-8 py-4 sm:py-8">
                     <div className="font-serif">
                         <PortableText value={props.text} />
                     </div>

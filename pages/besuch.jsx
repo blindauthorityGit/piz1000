@@ -70,7 +70,7 @@ export default function Besucher({ dataBesucher, dataEvent, dataSetting, dataInf
             </Head>
 
             <Breadcrumbs links={linkList}></Breadcrumbs>
-            <Hero1 height="h-[480px]" bgImage={dataBesucher.mainImage}></Hero1>
+            <Hero1 height="h-[250px] sm:h-[480px]" bgImage={dataBesucher.mainImage}></Hero1>
 
             <div className="divider h-6"></div>
             <InfoBox1 data={dataInfos.infoBoxes}></InfoBox1>
@@ -79,7 +79,7 @@ export default function Besucher({ dataBesucher, dataEvent, dataSetting, dataInf
             <div className="divider h-12"></div>
 
             <BasicText1 data={dataBesucher.basicTexts[1]}></BasicText1>
-            <div className="divider h-24"></div>
+            <div className="divider h-12"></div>
 
             <EventSlider1 events={dataEvent}></EventSlider1>
             <div className="divider h-24"></div>
