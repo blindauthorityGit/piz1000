@@ -18,9 +18,9 @@ const Hero = (props) => {
     const [loading, setLoading] = useState(true);
 
     return (
-        <div className={`container m-auto ${props.fullHeight ? "h-full" : props.height} ${props.colspan}`}>
+        <div className={`container relative m-auto ${props.fullHeight ? "h-full" : props.height} ${props.colspan}`}>
             {/* Background Image */}
-            <div className="spinner z-50 w-full h-full items-center flex justify-center">
+            <div className="spinner z-50  h-full items-center flex justify-center">
                 <ClipLoader
                     color={"#a22010"}
                     loading={loading}
