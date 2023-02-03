@@ -20,15 +20,17 @@ const Hero = (props) => {
     return (
         <div className={`container relative m-auto ${props.fullHeight ? "h-full" : props.height} ${props.colspan}`}>
             {/* Background Image */}
-            <div className="spinner z-50  h-full items-center flex justify-center">
-                <ClipLoader
-                    color={"#a22010"}
-                    loading={loading}
-                    size={150}
-                    aria-label="Loading Spinner"
-                    data-testid="loader"
-                />
-            </div>
+            {loading && (
+                <div className="spinner z-50  h-full items-center flex justify-center">
+                    <ClipLoader
+                        color={"#a22010"}
+                        loading={loading}
+                        size={150}
+                        aria-label="Loading Spinner"
+                        data-testid="loader"
+                    />
+                </div>
+            )}
             <div className="w-full h-full bg-cover bg-center">
                 <Image
                     // {...ImagePropsGallery(i)}

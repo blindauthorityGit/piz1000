@@ -6,8 +6,8 @@ const Element = (props) => {
         <div className="h-full">
             <Link href={`/events/${props.link}`}>
                 <a className="hover:opacity-80">
-                    <div className={`grid grid-cols-12 h-full  ${props.colspan}`}>
-                        <div className="col-span-4 bg-primary font-oswald p-4 h-full text-center text-white">
+                    <div className={`grid grid-cols-12 h-full items-center justify-center  ${props.colspan}`}>
+                        <div className="col-span-4 bg-primary font-oswald p-4 h-full flex flex-col items-center justify-center text-center text-white">
                             <div className="font-oswald font-bold text-xl">
                                 {props.date.split("-")[2]}.{props.date.split("-")[1]}.
                             </div>
