@@ -108,5 +108,6 @@ export async function getStaticProps() {
             dataSetting,
             dataInfos,
         },
+        revalidate: 1, // 10 seconds
     };
 }

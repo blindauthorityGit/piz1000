@@ -83,5 +83,7 @@ export const getStaticProps = async (context) => {
             dataAll,
             dataSetting,
         },
+        revalidate: 1, // 10 seconds
+
     };
 };

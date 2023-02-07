@@ -147,5 +147,6 @@ export const getStaticProps = async (context) => {
             post: data[0],
             dataAll,
         },
+        revalidate: 1, // 10 seconds
     };
 };

@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 
 import Head from "next/head";
 import client from "../client";
@@ -91,11 +91,7 @@ export default function Home({ dataStart, dataEvent, dataBlog, dataSetting }) {
             <div className="divider h-12"></div>
             <div data-aos="fade-up">
                 <ImgText1 data={dataStart.textImageBoxes[0]}>
-                    <div
-                        ref={siegelRef}
-                        // style={{ left: `-${siegelWidth / 2}px` }}
-                        className={`absolute right-[16px]`}
-                    >
+                    <div ref={siegelRef} className={`absolute right-[16px]`}>
                         <img src={Siegel.src}></img>
                     </div>
                 </ImgText1>
