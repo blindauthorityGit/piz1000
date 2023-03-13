@@ -82,7 +82,7 @@ export default async (req, res) => {
         `;
 
         // send the email
-        await sendEmail("office@atelierbuchner.at", `${betreff} | ${name}`, html);
+        await sendEmail("piz1000@pitten.at", `${betreff} | ${name}`, html);
 
         // return success response
         res.status(200).json(req.body);

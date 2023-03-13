@@ -76,7 +76,7 @@ const Form1 = (props) => {
                     {errors.email && <Error klasse="col-span-12 lg:col-span-6">Bitte geben Sie Ihre Email an</Error>}
 
                     <input
-                        {...register("phone", { required: true })}
+                        {...register("phone", { required: false })}
                         name="phone"
                         id="phone"
                         className="col-span-12 lg:col-span-6  p-4"
