@@ -77,7 +77,7 @@ const BlogGrid1 = (props) => {
                                 </Link>
                             </div>
                             <div className="col-span-12 md:col-span-6 relative mb-8">
-                                <p>{e._createdAt.split("T")[0].split("-").reverse().join(".")}</p>
+                                {/* <p>{e._createdAt.split("T")[0].split("-").reverse().join(".")}</p> */}
                                 <h2 className="font-oswald font-semibold text-2xl mt-2 mb-4">{e.title}</h2>
                                 <div>
                                     {" "}
