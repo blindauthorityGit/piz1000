@@ -69,7 +69,7 @@ export default function Home({ dataStart, dataEvent, dataBlog, dataSetting }) {
             {/* // MOBILE HERO */}
             <div
                 data-aos="fade-right"
-                style={{ height: "calc(60% - 99px)" }}
+                style={{ height: "calc(70% - 99px)" }}
                 className="block sm:hidden w-full bg-white h-full sm:h-auto"
             >
                 <HeroSlider1 slides={dataStart.mainSliders}></HeroSlider1>
