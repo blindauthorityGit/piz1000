@@ -69,7 +69,7 @@ export default function Home({ dataStart, dataEvent, dataBlog, dataSetting }) {
             {/* // MOBILE HERO */}
             <div
                 data-aos="fade-right"
-                style={{ height: "calc(100% - 99px)" }}
+                style={{ height: "calc(60% - 99px)" }}
                 className="block sm:hidden w-full bg-white h-full sm:h-auto"
             >
                 <HeroSlider1 slides={dataStart.mainSliders}></HeroSlider1>
@@ -81,11 +81,11 @@ export default function Home({ dataStart, dataEvent, dataBlog, dataSetting }) {
                 <HeroSlider1 slides={dataStart.mainSliders}></HeroSlider1>
             </div>
 
-            <div className="divider h-8"></div>
+            <div className="divider h-4 sm:h-8"></div>
 
             <EventSlider1 events={dataEvent}></EventSlider1>
             <div className="divider h-6"></div>
-            <div data-aos="fade-up" className="w-full bg-white py-6">
+            <div className="w-full bg-white py-6">
                 <BlogGrid1 data={dataBlog} alle></BlogGrid1>
             </div>
             <div className="divider h-12"></div>

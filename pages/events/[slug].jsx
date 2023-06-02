@@ -143,6 +143,9 @@ const Event = ({ post, dataAll }) => {
                     />
                     <div className="divider h-12 sm:h-24"></div>
                     <div data-aos="fade-right">
+                        <h2 className="font-oswald container mx-auto text-4xl lg:text-6xl font-semibold px-8 mb-8 lg:mb-12">
+                            Weitere Veranstaltungen:
+                        </h2>
                         <EventSlider1 nonstart events={dataAll}></EventSlider1>
                     </div>
                     <div className="divider h-12 sm:h-24"></div>

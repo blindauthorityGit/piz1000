@@ -86,34 +86,34 @@ const EventSlider1 = (props) => {
                     onClick={() => {
                         swiper.slidePrev();
                     }}
-                    className="absolute top-1/2  transform -translate-x-1/2 z-50 "
+                    className="absolute top-[30%]  transform -translate-x-1/2 z-30 "
                 >
                     <button
                         style={{ opacity: isLastSlideLeft ? 0.5 : 1 }}
-                        className="bg-black rounded-full h-8 w-8 flex items-center justify-center"
+                        className=" rounded-full h-8 w-8 flex items-center justify-center"
                     >
-                        <FaChevronLeft className="text-white" />
+                        <FaChevronLeft className="text-black" />
                     </button>
                 </div>
                 <div
                     onClick={() => {
                         swiper.slideNext();
                     }}
-                    className="absolute top-1/2 right-[-6px] transform -translate-x-1/2  z-50"
+                    className="absolute  top-[30%] right-[-6px] transform -translate-x-1/2  z-30"
                 >
                     <button
                         style={{ opacity: isLastSlideRight ? 0.5 : 1 }}
-                        className="bg-black rounded-full h-8 w-8 flex items-center justify-center"
+                        className=" rounded-full h-8 w-8 flex items-center justify-center"
                     >
-                        <FaChevronRight className="text-white" />
+                        <FaChevronRight className="text-black" />
                     </button>
                 </div>
             </div>
-            {props.nonstart ? (
+            {/* {props.nonstart ? (
                 <h2 className="font-oswald text-4xl lg:text-6xl font-semibold mb-8 lg:mb-12">
                     Weitere Veranstaltungen:
                 </h2>
-            ) : null}
+            ) : null} */}
 
             <Swiper
                 // install Swiper modules
@@ -132,13 +132,14 @@ const EventSlider1 = (props) => {
                     console.log(swiper.activeIndex);
                     handleNav();
                 }}
-                className="h-full eventSlider pb-[3.75rem!important]"
-                style={{ paddingBottom: "3.75rem!important" }}
+                className="h-full eventSlider"
+                // style={{ paddingBottom: "3.75rem!important" }}
                 breakpoints={{
                     // when window width is >= 640px
                     320: {
                         slidesPerView: 1,
                         navigation: true,
+                        pagination: false,
                     },
                     768: {
                         slidesPerView: 2,
@@ -186,7 +187,7 @@ const EventSlider1 = (props) => {
                                 <p className="font-serif mb-16 mt-2 text-sm">{e.subTitle}</p>
                             </div>
                             <Link href={`/events/${e.slug.current}`}>
-                                <button className=" border absolute bottom-0 border-black text-black hover-underline-animation  flex items-center justify-center mt-8 py-3 px-6  sm:w-full lg:w-auto w-full right-0 left-0 font-oswald uppercase rounded-md">
+                                <button className="  absolute bottom-0 border-black text-black underline hover-underline-animation  flex items-center justify-center mt-8 py-3 px-6  sm:w-full lg:w-auto w-full right-0 left-0 font-oswald uppercase rounded-md">
                                     <span className=""> Mehr</span>
                                 </button>
                             </Link>
