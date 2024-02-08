@@ -21,6 +21,8 @@ function urlFor(source) {
 
 const ElementGrid1 = (props) => {
     const [isLoaded, setisLoaded] = useState(false);
+    const [filteredEvents, setFilteredEvents] = useState([]);
+
     useEffect(() => {
         setisLoaded(true);
     }, []);
@@ -49,17 +51,30 @@ const ElementGrid1 = (props) => {
         },
     };
 
+    useEffect(() => {
+        const today = new Date();
+        today.setHours(0, 0, 0, 0); // Normalize today to the start of the day
+
+        const filtered = props.data.filter((event) => {
+            const eventDate = new Date(event.zeit.date);
+            return eventDate >= today; // Keep the event if its date is today or in the future
+        });
+
+        setFilteredEvents(filtered);
+        setisLoaded(true);
+    }, [props.data]);
+
     return (
         <div
             className={`${isLoaded ? "opacity-100" : "opacity-0"} container px-8 sm:px-24 m-auto relative mt-12 mb-24 ${
                 props.colspan
             }`}
         >
-            <div className="grid grid-cols-12 gap-6 ">
-                {props.data.map((e, i) => {
+            <div className="grid grid-cols-12 gap-4 lg:gap-6 ">
+                {filteredEvents.map((e, i) => {
                     return (
                         <div key={`gridKey${i}`} className="col-span-6 lg:col-span-4 relative mb-8">
-                            <h3 className="font-oswald text-xl font-semibold">
+                            <h3 className="font-oswald text-base lg:text-xl font-semibold">
                                 {e.zeit.date.split("-").reverse().join(".")}
                             </h3>
                             <p className="font-serif mb-2 mt-1">{e.zeit.time}</p>
@@ -75,10 +90,10 @@ const ElementGrid1 = (props) => {
                                     />
                                 </div>
                             </Link>
-                            <h2 className="font-oswald font-semibold text-2xl mt-3">{e.title}</h2>
-                            <p className="font-serif mb-20 mt-2">{e.subTitle}</p>
+                            <h2 className="font-oswald font-semibold text-lg lg:text-2xl mt-3">{e.title}</h2>
+                            <p className="font-serif text-sm lg:text-base mb-20 mt-2">{e.subTitle}</p>
                             <Link href={`/events/${e.slug.current}`}>
-                                <button className=" border absolute bottom-0 border-black text-black hover-underline-animation  flex items-center justify-center mt-8 py-3 px-6 w-full lg:w-auto min-w-[10rem] lg:max-w-[12rem] font-oswald uppercase rounded-md">
+                                <button className=" border absolute bottom-0 text-xs lg:text-base border-black text-black hover-underline-animation  flex items-center justify-center mt-8 py-3 px-6 w-full lg:w-auto lg:min-w-[10rem] lg:max-w-[12rem] font-oswald uppercase rounded-md">
                                     <span className=""> Mehr</span>
                                 </button>
                             </Link>

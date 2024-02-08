@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
+
 // SWIPER
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
@@ -13,14 +15,8 @@ import "swiper/css/scrollbar";
 // hooks
 import useViewportHeight from "../utils/useViewportHeight";
 
-//config
-import sliderConfig from "./slides/config";
-
-// animations
-import { motion } from "framer-motion";
-
-// icons
-import { BsArrowRightShort } from "react-icons/bs";
+//ASSETS
+import Plakette from "../../assets/1155.png";
 
 //ImageBuilder
 import myConfiguredSanityClient from "../../client";
@@ -165,6 +161,20 @@ const HeroSlider1 = (props) => {
                     background-color: #fff !important;
                 }
             `}</style>
+            <div className="absolute top-[-1.5rem] lg:top-2 lg:right-8 z-10 w-[100px] lg:w-[200px] left-1/2 transform -translate-x-1/2 lg:translate-x-0 lg:left-auto">
+                <div className="w-full h-full relative aspect-[26/21]">
+                    <Image
+                        src={Plakette}
+                        alt="alt"
+                        layout="fill"
+                        objectFit="cover"
+                        quality={100}
+                        className={`hidden lg:block`}
+                        // style={{ aspectRatio: aspectRatio }}
+                        // onLoadingComplete={handleLoadingComplete} />
+                    />
+                </div>
+            </div>
         </div>
     );
 };

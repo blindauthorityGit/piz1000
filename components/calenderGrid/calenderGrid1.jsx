@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 
 // import { ImageGrid1 } from "../imageGrids";
@@ -6,11 +6,25 @@ import Link from "next/link";
 import Element from "./element";
 
 const CalenderGrid1 = (props) => {
+    const [filteredEvents, setFilteredEvents] = useState([]);
+
+    useEffect(() => {
+        const today = new Date();
+        today.setHours(0, 0, 0, 0); // Normalize today to the start of the day
+
+        const filtered = props.data.filter((event) => {
+            const eventDate = new Date(event.zeit.date);
+            return eventDate >= today; // Keep the event if its date is today or in the future
+        });
+
+        setFilteredEvents(filtered);
+    }, [props.data]);
+
     return (
         <div
             className={` container m-auto bg-lightGrey py-8 sm:px-24 gap-4 lg:gap-16 grid grid-cols-12  ${props.colspan}`}
         >
-            {props.data.map((e, i) => {
+            {filteredEvents.map((e, i) => {
                 return (
                     <div key={`calGridKey${i}`} className="col-span-12 sm:col-span-6 lg:col-span-4 h-full">
                         <Element

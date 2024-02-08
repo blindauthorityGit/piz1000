@@ -35,6 +35,7 @@ const EventSlider1 = (props) => {
     const [swiper, setSwiper] = useState(null);
     const [isLastSlideLeft, setIsLastSlideLeft] = useState(true);
     const [isLastSlideRight, setIsLastSlideRight] = useState(false);
+    const [filteredEvents, setFilteredEvents] = useState([]);
 
     const handleNav = () => {
         if (swiper && swiper.activeIndex === 0) {
@@ -48,8 +49,17 @@ const EventSlider1 = (props) => {
     };
 
     useEffect(() => {
+        const today = new Date();
+        today.setHours(0, 0, 0, 0); // Normalize today to the start of the day
+
+        const filtered = props.events.filter((event) => {
+            const eventDate = new Date(event.zeit.date);
+            return eventDate >= today; // Keep the event if its date is today or in the future
+        });
+
+        setFilteredEvents(filtered);
         setisLoaded(true);
-    }, []);
+    }, [props.events]);
 
     const textMotion = {
         rest: {
@@ -155,7 +165,7 @@ const EventSlider1 = (props) => {
                     },
                 }}
             >
-                {props.events.map((e, i) => {
+                {filteredEvents.map((e, i) => {
                     return (
                         <SwiperSlide
                             key={`sliderKey${i}`}
