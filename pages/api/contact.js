@@ -41,7 +41,7 @@
 
 const nodemailer = require("nodemailer");
 
-const sendEmail = async (to, subject, html) => {
+const sendEmail = async (to, subject, html, replyToEmail) => {
     try {
         // create a transporter object
         const transporter = nodemailer.createTransport({
@@ -60,6 +60,7 @@ const sendEmail = async (to, subject, html) => {
             to,
             subject,
             html,
+            replyTo: replyToEmail, // Set the replyTo email address to the user's email
         });
 
         console.log("Email sent successfully");
@@ -82,7 +83,7 @@ export default async (req, res) => {
         `;
 
         // send the email
-        await sendEmail("piz1000@pitten.at", `${betreff} | ${name}`, html);
+        await sendEmail("piz1000@pitten.at", `${betreff} | ${name}`, html, email);
 
         // return success response
         res.status(200).json(req.body);
